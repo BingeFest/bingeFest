@@ -14,4 +14,6 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const bingeFestApp = initializeApp(firebaseConfig);
+
+export default bingeFestApp;

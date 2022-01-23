@@ -1,6 +1,7 @@
 import './App.css';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import FavouritesList from './components/FavouritesList';
 
 
 function App() {
