@@ -1,7 +1,7 @@
 import './tvShows.css'
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-
+import TvResultsCatalog from './TvResultsCatalog.js'
 
 const TvShows = () => {
     // error states
@@ -45,7 +45,7 @@ const TvShows = () => {
         setUserChoice(event.target.value);
     };
 
-    // set the id into state to submit to the api
+    // set the button id into state to submit to the api
     const handleSubmit = (event) => {
         event.preventDefault();
         setSearchQuery(userChoice);
@@ -74,14 +74,16 @@ const TvShows = () => {
     return (
         <section className="tvShowsContainer">
             <form onSubmit={handleSubmit} className="tvFormContainer">
-            {buttonContent.map((genre) => {
-                return (
-                    <div key={genre.id} className="buttonContainer">
-                    <label htmlFor="genre">{genre.name}</label>
-                    <input type='button' onClick={handleInput} value={genre.id} key={genre.id}/>
-                    </div>
-                )
-            })}
+                <div className="tvButtonContainer">
+                {buttonContent.map((genre) => {
+                    return (
+                        <div key={genre.id} className="buttonContainer">
+                            <label htmlFor="genre">{genre.name}</label>
+                            <input type='button' onClick={handleInput} value={genre.id} key={genre.id} text={genre.name}/>
+                            </div>
+                    )
+                })}
+            </div>
                 <button className="submit">Submit</button>
             </form>
 
@@ -89,14 +91,12 @@ const TvShows = () => {
             {tvShows.map((show) => {
                 return (
                     <div key={show.id} className="showContainer">
-                        <h2>{show.name}</h2>
+                        <img src={`https://image.tmdb.org/t/p/original/${show.poster_path}`}/>
                     </div>
-                )
-            })}
+            )})}
             </div>
         </section>
-    ); 
-
+    )
 }
 
 export default TvShows;
