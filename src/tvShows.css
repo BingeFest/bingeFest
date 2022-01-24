@@ -1,20 +1,25 @@
 .tvShowsContainer {
     display: flex;
+    flex-direction: column;
     width: 100%;
     background-color: blue;
-    height: 70vh;
 }
 
 .tvFormContainer {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 100%;
     justify-content: center;
     align-items: center;
     background-color: chartreuse;
 }
 
+.tvButtonContainer {
+    display: flex;
+}
+
 .submit {
+    display: block;
     width: 300px;
     margin-top: 30px;
 }
@@ -22,14 +27,18 @@
 .tvResultsSection {
     display: flex;
     flex-wrap: wrap;
-    width: 70%;
+    width: 100%;
     justify-content: space-around;
     align-items: center;
 }
 
 .showContainer {
     width: 200px;
-    height: 200px;
+    height: 300px;
     background-color: red;
     border-radius: 15px;
+}
+
+.showContainer img {
+    width: 100%;
 }
