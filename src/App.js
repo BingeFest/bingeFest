@@ -1,6 +1,8 @@
 import './App.css';
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+import FavouritesList from './components/FavouritesList.js';
+import TvShows from './components/TvShows.js'
 
 
 function App() {
@@ -72,6 +74,11 @@ function App() {
         </form>
       </div>
 
+      <section className="tvShows">
+        <TvShows />
+      </section>
+
+
     </div>
   );
 }
@@ -112,7 +119,6 @@ export default App;
   // - Create another state called 'list' that will store the user's favourited items
   // - Within each result component, use an addToList function that pushes the object into the list state
   // - Create a list component that will hold the list items (slide-out menu)
- 
 
 
 
