@@ -13,20 +13,18 @@ function FavouritesList() {
     // (**Create button attached to results from API call from food app & movie DB** )
     const handleClick = (event) => {
         setFavouritedItem(event.target.value);
-        
         event.preventDefault();
 
         const database = getDatabase(bingeFestApp);
-
         const dbRootAddress = ref(database);
 
         push (dbRootAddress, favouritedItem, list);
 
     };
-
+// Creating another function to allow users to remove favourited items from their list:
     const handleRemove = (favouritedItemId) => {
-        const database = getDatabase(bingeFestApp);
 
+        const database = getDatabase(bingeFestApp);
         const dbBingeFestAddress = ref(database, `${favouritedItemId}`);
 
         remove(dbBingeFestAddress);
@@ -34,16 +32,14 @@ function FavouritesList() {
 
     useEffect(() => {
         const database = getDatabase(bingeFestApp);
-
         const dbRootAddress = ref(database);
 
         onValue(dbRootAddress, (response) => {
             const newFavourite = [];
-
             const data = response.val();
 
             for (let key in data) {
-                newFavourite.push({key: key, name: data[kay] });
+                newFavourite.push({key: key, name: data[key] });
             }
             setList(newFavourite);
         });
@@ -57,7 +53,6 @@ function FavouritesList() {
         <div className='user-list-containter'>
             <ul>
                 <li className='favourite-item' key={favouritedItem.key}>
-                    <img src={}/>
                     <p className='favourite-item-title'>{favouritedItem.name}</p>
                     <button className='remove-from-list' onClick={() => {handleRemove(favouritedItem.key);}}>
                         x
