@@ -1,0 +1,35 @@
+.tvShowsContainer {
+    display: flex;
+    width: 100%;
+    background-color: blue;
+    height: 70vh;
+}
+
+.tvFormContainer {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    background-color: chartreuse;
+}
+
+.submit {
+    width: 300px;
+    margin-top: 30px;
+}
+
+.tvResultsSection {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.showContainer {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    border-radius: 15px;
+}
