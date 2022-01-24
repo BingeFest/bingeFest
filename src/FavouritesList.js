@@ -1,7 +1,7 @@
 const FavouritesList = () => {
 
     return (
-
+        <div>hi</div>
     );
 };
 
