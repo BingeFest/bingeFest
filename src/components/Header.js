@@ -1,5 +1,5 @@
 // HEader
-
+import { Link, Route, Routes, Outlet, useParams } from 'react-router-dom';
 const Header = () => {
 
     return (
@@ -7,9 +7,13 @@ const Header = () => {
             <header>
                 <nav className="wrapper">
                     <ul>
-                        <li className="nav">Takeout</li>
-                        <li className="title" >Binge Fest</li>
-                        <li className="nav">TV shows</li>
+                        <li >
+                            <Link className="nav" to="Fest/Takeout">Takeout </Link>
+                        </li>
+                        <li className="nav"> Binge Fest</li>
+                        <li className="title" >
+                            <Link className="nav" to="Fest/TVsows"> TV shows</Link>
+                        </li>
                     </ul>
                 </nav>
             </header>
