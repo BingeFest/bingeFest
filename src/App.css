@@ -62,8 +62,13 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 } */
 
 .foodList li {
+  /* padding: 0 25px; */
   /* height: 30%; */
-  width: calc(100% / 3);
+  width: calc(100% / 5);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .restaurantBox {
@@ -85,6 +90,16 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
   justify-content: center;
 }
 
+.restaurantInfo p {
+  padding: 0;
+  margin: 0;
+}
+
+.restaurantInfo button {
+  max-width: 150px;
+  margin: 0 auto;
+}
+
 .restaurantInfo:hover,
 .restaurantInfo:focus {
   opacity: 1;
@@ -92,5 +107,9 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 
 .restaurantImage img {
   max-width: 100%;
-  height: 30%;
+  /* height: 30%; */
+  overflow: hidden;
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
 }
