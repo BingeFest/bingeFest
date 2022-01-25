@@ -1,26 +1,66 @@
+
+
+/* --------------------------------------- FORM STYLES --------------------------------------- */
+
+
 .foodPage {
     margin-top: 3%;
 }
 
-.foodPage .foodList {
+.foodPage form {
+    display: flex;
+    flex-direction: column;
     margin-top: 3%;
 }
 
+.foodPage label {
+    font-weight: 600;
+}
 
+.foodPage input,
+.foodPage button {
+    width: 30%;
+    /* margin: 0 auto; */
+}
+
+.foodPage input {
+    border: none;
+    padding: 5px;
+    border-bottom: 1px solid black;
+    margin: 2% auto;
+}
+
+.foodPage button {
+    margin: 2% auto;
+    border: none;
+    padding: 10px 0;
+    transition: 0.2s  ease-out;
+}
+
+.foodPage button:hover,
+.foodPage button:focus {
+    transform: scale(1.05);
+    background-color: #3fc5cc;
+    color: #EEEEEE;
+}
+
+.foodPage button:active {
+    transform: scale(1);
+}
+
+/* --------------------------------------- Results List Gallery Styles --------------------------------------- */
 
 .foodList {
+    margin-top: 3%;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     padding: 0;
-    margin: 0;
+    /* margin: 0; */
+    overflow: hidden;
 }
 
-
-
 .foodList li {
-    /* padding: 0 25px; */
-    /* height: 30%; */
     width: calc(100% / 5);
     margin: 0 auto;
     display: flex;
@@ -45,7 +85,7 @@
     bottom: 0;
     left: 0;
     color: white;
-    background-color: rgba(0, 0, 0, 0.425);
+    background-color: rgba(0, 0, 0, 0.637);
     z-index: 10;
     opacity: 0;
     display: flex;
@@ -60,14 +100,41 @@
     margin: 0;
 }
 
+.restaurantInfo a {
+    text-decoration: none;
+    color: #FFF;
+    transition: 0.1s ease-out;
+    
+}
+
+.websiteUrl {
+    transition: 0.2s ease-out;
+}
+
+.websiteUrl:hover,
+.websiteUrl:focus {
+    transform: scale(1.1);
+    color: #89e6eb;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.restaurantInfo a:hover,
+.restaurantInfo a:focus {
+    color: #89e6eb;
+}
+
 .restaurantInfo button {
     max-width: 150px;
-    margin: 0 auto;
+    width: 60%;
+    margin-top: 5%;
 }
 
 .restaurantInfo:hover,
 .restaurantInfo:focus {
     opacity: 1;
+    /* color: #EEEEEE; */
+    
 }
 
 .restaurantImage
