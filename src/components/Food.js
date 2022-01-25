@@ -63,11 +63,13 @@ const Food = () => {
 
     return (
         <div className="foodPage">
+            <h2>Fancy some takeout?</h2>
+            <h3>Enter your location and your craving to find some great local eats!</h3>
           <form onSubmit={ handleSubmitting }>
-            <label htmlFor="foodSearch">What are you craving? </label>
-            <input type="text" id="foodSearch" value={userInputting} onChange={ handleInputting } />
-            <label htmlFor="location">Where are you?</label>
-            <input type="text" id="location" value={userLocation} onChange={ foodInputting } />
+            <label htmlFor="foodSearch">Cravings</label>
+            <input type="text" id="foodSearch" value={userInputting} onChange={ handleInputting } placeholder="What are you craving?"/>
+            <label htmlFor="location">Location</label>
+            <input type="text" id="location" value={userLocation} onChange={ foodInputting } placeholder="Where can we find you?"/>
             <button>Search</button>
         </form>
         <ul className="foodList">
@@ -77,16 +79,16 @@ const Food = () => {
 
                         <div className="restaurantBox" key={restaurant.id}>
                             <div className="restaurantImage">
-                                <img src={restaurant.image_url} alt={`${restaurant.name} restaurant.`} />
+                                <img src={restaurant.image_url ? restaurant.image_url : 'https://source.unsplash.com/random/'} alt={`${restaurant.name}.`}/>
                             </div>
                             <div className="restaurantInfo">   
                                         <h2>{restaurant.name}</h2>
-                                        <p>{restaurant.location.address1}, {restaurant.location.address2}</p>
                                         <p>{restaurant.categories[0].title}</p>
+                                        <p>{restaurant.location.address1}, {restaurant.location.address2}</p>
                                         <p>{restaurant.location.city}</p>
                                         <p>{restaurant.phone}</p>
                                         <p>Rating: {restaurant.rating}/5</p>
-                                        <p><a href={restaurant.url}>Website</a></p>
+                                        <p className="websiteUrl"><a href={restaurant.url}>Website</a></p>
                                         <button>Add to favourites</button>                                 
                             </div>
                         </div>
@@ -102,3 +104,5 @@ const Food = () => {
 };
 
 export default Food;
+
+// https://source.unsplash.com/random
