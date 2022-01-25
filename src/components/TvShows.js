@@ -1,7 +1,6 @@
 import './tvShows.css'
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import TvResultsCatalog from './TvResultsCatalog.js'
 
 const TvShows = () => {
     // error states
