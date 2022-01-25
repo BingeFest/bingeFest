@@ -1,7 +1,6 @@
 import './tvShows.css'
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import TvResultsCatalog from './TvResultsCatalog.js'
 
 const TvShows = () => {
     // error states
@@ -55,9 +54,12 @@ const TvShows = () => {
     useEffect(() => {
         if (searchQuery !== 0) {
             axios({
-                url: `https://api.themoviedb.org/3/discover/tv?api_key=853030e957dca57316fe835ed75d0d32&with_genres=${searchQuery}`,
+                url: `https://api.themoviedb.org/3/discover/tv?api_key=853030e957dca57316fe835ed75d0d32`,
                 method: 'GET',
                 dataResponse: 'json',
+                params: {
+                    with_genres: searchQuery
+                }
             }).then(
                 (response) => {
                     const rawData = response.data.results;
@@ -72,30 +74,35 @@ const TvShows = () => {
 
 
     return (
-        <section className="tvShowsContainer">
+        <section className="tvPageContainer">
+
             <form onSubmit={handleSubmit} className="tvFormContainer">
-                <div className="tvButtonContainer">
-                {buttonContent.map((genre) => {
+                <div className="tvInputContainer">
+                {buttonContent.map((genre, index) => {
                     return (
-                        <div key={genre.id} className="buttonContainer">
+                        <div key={genre.id} className="radioContainer" tabIndex={index}>
                             <label htmlFor="genre">{genre.name}</label>
-                            <input type='button' onClick={handleInput} value={genre.id} key={genre.id} text={genre.name}/>
+                            <input type='radio' onClick={handleInput} value={genre.id} key={genre.id} text={genre.name}/>
                             </div>
                     )
                 })}
-            </div>
+                </div>
                 <button className="submit">Submit</button>
             </form>
 
             <div className="tvResultsSection">
             {tvShows.map((show) => {
                 return (
-                    <div key={show.id} className="showContainer">
+                    show.poster_path === null
+                    ?   null
+                    :   <div key={show.id} className="showContainer">
                         <img src={`https://image.tmdb.org/t/p/original/${show.poster_path}`}/>
-                    </div>
+                        <button>Add to your list</button>
+                        </div>
                 )
             })}
             </div>
+
         </section>
     ); 
 

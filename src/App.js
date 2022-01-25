@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import TvShows from './TvShows.js'
+import TvShows from './components/TvShows.js'
 
 
 function App() {
