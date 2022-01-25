@@ -3,11 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-<<<<<<< HEAD
 import './components/food.css';
-=======
 import { BrowserRouter } from 'react-router-dom';
->>>>>>> css-html
 
 ReactDOM.render(
   <React.StrictMode>
