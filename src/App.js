@@ -76,8 +76,8 @@ function App() {
       </div>
 
       <section className="tvShows">
-        <Food />
         <TvShows />
+        <Food />
       </section>
 
 
