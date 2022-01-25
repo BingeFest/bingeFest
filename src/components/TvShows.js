@@ -1,7 +1,8 @@
 import './tvShows.css'
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
+import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
 import axios from 'axios';
-
+import bingeFest from '../firebaseSetup';
 
 const TvShows = () => {
     // error states
@@ -17,6 +18,9 @@ const TvShows = () => {
 
     // result states
     const [tvShows, setTvShows] = useState([]);
+
+    // firebase states
+    const [favouritedShow, setFavouritedShow] = useState([]);
 
     // put the genre data in each button
     useEffect(() => {
@@ -55,9 +59,12 @@ const TvShows = () => {
     useEffect(() => {
         if (searchQuery !== 0) {
             axios({
-                url: `https://api.themoviedb.org/3/discover/tv?api_key=853030e957dca57316fe835ed75d0d32&with_genres=${searchQuery}`,
+                url: `https://api.themoviedb.org/3/discover/tv?api_key=853030e957dca57316fe835ed75d0d32`,
                 method: 'GET',
                 dataResponse: 'json',
+                params: {
+                    with_genres: searchQuery
+                }
             }).then(
                 (response) => {
                     const rawData = response.data.results;
@@ -67,36 +74,82 @@ const TvShows = () => {
                 (error) => {
                     setError(error);
                 })
+        }
+    }, [searchQuery]);
+
+    useEffect(() => {
+        // create a variable that holds our database details
+        const database = getDatabase(bingeFest)
+        // create a variable that references our database
+        const dbRef = ref(database)
+
+        // add an event listener to that variable that will fire
+        // from the database, and call that data 'response'.
+
+        // add an event listener to our database that fires when it is updated
+        onValue(dbRef, (response) => {
+            // create a variable to store the new state we want to introduce to our app
+            const newState = [];
+
+            const data = response.val();
+
+            for (let key in data) {
+                newState.push(data[key]);
             }
-        }, [searchQuery]);
+
+            setFavouritedShow(newState);
+            // here we use Firebase's .val() method to parse our database info the way we want it
+            console.log(response.val());
+        })
+
+        console.log('is this workin')
+    }, [])
+
+    // const firebaseAdd = (event) => {
+    //     console.log(event);
+    // };
+
 
 
     return (
-        <section className="tvShowsContainer">
+        <section className="tvPageContainer">
+
             <form onSubmit={handleSubmit} className="tvFormContainer">
-                <div className="tvButtonContainer">
-                {buttonContent.map((genre) => {
-                    return (
-                        <div key={genre.id} className="buttonContainer">
-                            <label htmlFor="genre">{genre.name}</label>
-                            <input type='button' onClick={handleInput} value={genre.id} key={genre.id} text={genre.name}/>
+                <div className="tvInputContainer">
+                    {buttonContent.map((genre, index) => {
+                        return (
+                            <div key={genre.id} className="radioContainer" tabIndex={index}>
+                                <label htmlFor="genre">{genre.name}</label>
+                                <input type='radio' onClick={handleInput} value={genre.id} key={genre.id} text={genre.name} />
                             </div>
-                    )
-                })}
-            </div>
+                        )
+                    })}
+                </div>
                 <button className="submit">Submit</button>
             </form>
 
             <div className="tvResultsSection">
-            {tvShows.map((show) => {
-                return (
-                    <div key={show.id} className="showContainer">
-                        <img src={`https://image.tmdb.org/t/p/original/${show.poster_path}`}/>
-                    </div>
-            )})}
+                {tvShows.map((show) => {
+                    return (
+                        show.poster_path === null
+                            ? null
+                            : <div key={show.id} className="showContainer">
+                                <img src={`https://image.tmdb.org/t/p/original/${show.poster_path}`} />
+                                <button>Add to your list</button>
+                            </div>
+                    )
+                })}
             </div>
+
+            <div className="favouritesSection">
+                {favouritedShow.map((book) => {
+                    <p>{book}</p>
+                })}
+            </div>
+
         </section>
-    )
+    );
+
 }
 
 export default TvShows;

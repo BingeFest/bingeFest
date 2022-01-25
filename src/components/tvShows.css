@@ -1,17 +1,59 @@
-.tvShowsContainer {
+.tvPageContainer {
     display: flex;
+    flex-direction: column;
     width: 100%;
     background-color: blue;
-    height: 70vh;
 }
 
 .tvFormContainer {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 100%;
     justify-content: center;
     align-items: center;
     background-color: chartreuse;
+}
+
+.tvInputContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.radioContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 110px;
+    height: 50px;
+    border: 1.5px solid black;
+    border-radius: 15px;
+    position: relative;
+}
+
+.radioContainer:hover {
+    background-color: darkgray;
+}
+
+.radioContainer:focus {
+    background-color: darkgray;
+}
+
+.radioContainer:focus-within {
+    background-color: darkgreen;
+}
+
+
+label[for="genre"] {
+    position: absolute;
+}
+
+input[type="radio"] {
+    width: 100%;
+    height: 100%;
+    opacity: 0.01;
+    z-index: 100;
 }
 
 .submit {
@@ -22,14 +64,17 @@
 .tvResultsSection {
     display: flex;
     flex-wrap: wrap;
-    width: 70%;
+    width: 100%;
     justify-content: space-around;
     align-items: center;
 }
 
 .showContainer {
     width: 200px;
-    height: 200px;
+    height: 330px;
     background-color: red;
-    border-radius: 15px;
+}
+
+.showContainer img {
+    width: 100%;
 }
