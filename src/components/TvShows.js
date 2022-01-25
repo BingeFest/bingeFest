@@ -1,7 +1,8 @@
 import './tvShows.css'
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import Header from './Header';
+import Footer from './Footer';
 
 const TvShows = () => {
     // error states
@@ -67,35 +68,40 @@ const TvShows = () => {
                 (error) => {
                     setError(error);
                 })
-            }
-        }, [searchQuery]);
+        }
+    }, [searchQuery]);
 
 
     return (
-        <section className="tvShowsContainer">
-            <form onSubmit={handleSubmit} className="tvFormContainer">
-                <div className="tvButtonContainer">
-                {buttonContent.map((genre) => {
-                    return (
-                        <div key={genre.id} className="buttonContainer">
-                            <label htmlFor="genre">{genre.name}</label>
-                            <input type='button' onClick={handleInput} value={genre.id} key={genre.id} text={genre.name}/>
-                            </div>
-                    )
-                })}
-            </div>
-                <button className="submit">Submit</button>
-            </form>
+        <div>
+            <Header />
 
-            <div className="tvResultsSection">
-            {tvShows.map((show) => {
-                return (
-                    <div key={show.id} className="showContainer">
-                        <img src={`https://image.tmdb.org/t/p/original/${show.poster_path}`}/>
+            <section className="tvShowsContainer">
+                <form onSubmit={handleSubmit} className="tvFormContainer">
+                    <div className="tvButtonContainer">
+                        {buttonContent.map((genre) => {
+                            return (
+                                <div key={genre.id} className="buttonContainer">
+                                    <label htmlFor="genre">{genre.name}</label>
+                                    <input type='button' onClick={handleInput} value={genre.id} key={genre.id} text={genre.name} />
+                                </div>
+                            )
+                        })}
                     </div>
-            )})}
-            </div>
-        </section>
+                    <button className="submit">Submit</button>
+                </form>
+
+                <div className="tvResultsSection">
+                    {tvShows.map((show) => {
+                        return (
+                            <div key={show.id} className="showContainer">
+                                <img src={`https://image.tmdb.org/t/p/original/${show.poster_path}`} />
+                            </div>
+                        )
+                    })}
+                </div>
+            </section>
+        </div>
     )
 }
 
