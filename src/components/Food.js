@@ -54,6 +54,7 @@ const Food = () => {
              if (data.businesses) {
             //    const foodResults = data.businesses;
                setUserFoodSearch(data.businesses);
+            //    console.log(data.businesses)
              }
             });
         }, [searchTerm, searchLocation, resultsLimit]);
@@ -72,7 +73,7 @@ const Food = () => {
         <ul className="foodList">
             {userFoodSearch.map((restaurant)=>{
                 return (
-                    <li>
+                    <li key={restaurant.id}>
 
                         <div className="restaurantBox" key={restaurant.id}>
                             <div className="restaurantImage">
@@ -80,10 +81,11 @@ const Food = () => {
                             </div>
                             <div className="restaurantInfo">   
                                         <h2>{restaurant.name}</h2>
-                                        <p>{restaurant.location.address1}</p>
-                                        <p>{restaurant.location.address2}</p>
+                                        <p>{restaurant.location.address1}, {restaurant.location.address2}</p>
+                                        <p>{restaurant.categories[0].title}</p>
                                         <p>{restaurant.location.city}</p>
                                         <p>{restaurant.phone}</p>
+                                        <p>Rating: {restaurant.rating}/5</p>
                                         <p><a href={restaurant.url}>Website</a></p>
                                         <button>Add to favourites</button>                                 
                             </div>
