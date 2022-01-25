@@ -1,8 +1,9 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import FavouritesList from './components/FavouritesList.js';
+// import FavouritesList from './components/FavouritesList.js';
 import TvShows from './components/TvShows.js'
+import Food from './components/Food.js';
 
 
 function App() {
@@ -75,6 +76,7 @@ function App() {
       </div>
 
       <section className="tvShows">
+        <Food />
         <TvShows />
       </section>
 
