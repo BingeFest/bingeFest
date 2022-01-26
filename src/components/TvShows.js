@@ -77,33 +77,31 @@ const TvShows = () => {
         }
     }, [searchQuery]);
 
-    useEffect(() => {
-        // create a variable that holds our database details
-        const database = getDatabase(bingeFest)
-        // create a variable that references our database
-        const dbRef = ref(database)
+    // useEffect(() => {
+    //     // create a variable that holds our database details
+    //     const database = getDatabase(bingeFest)
+    //     // create a variable that references our database
+    //     const dbRef = ref(database)
 
-        // add an event listener to that variable that will fire
-        // from the database, and call that data 'response'.
+    //     // add an event listener to that variable that will fire
+    //     // from the database, and call that data 'response'.
 
-        // add an event listener to our database that fires when it is updated
-        onValue(dbRef, (response) => {
-            // create a variable to store the new state we want to introduce to our app
-            const newState = [];
+    //     // add an event listener to our database that fires when it is updated
+    //     onValue(dbRef, (response) => {
+    //         // create a variable to store the new state we want to introduce to our app
+    //         const newState = [];
 
-            const data = response.val();
+    //         const data = response.val();
 
-            for (let key in data) {
-                newState.push(data[key]);
-            }
+    //         for (let key in data) {
+    //             newState.push(data[key]);
+    //         }
 
-            setFavouritedShow(newState);
-            // here we use Firebase's .val() method to parse our database info the way we want it
-            console.log(response.val());
-        })
-
-        console.log('is this workin')
-    }, [])
+    //         setFavouritedShow(newState);
+    //         // here we use Firebase's .val() method to parse our database info the way we want it
+    //         console.log(response.val());
+    //     })
+    // }, [])
 
     // const firebaseAdd = (event) => {
     //     console.log(event);
@@ -113,6 +111,8 @@ const TvShows = () => {
 
     return (
         <section className="tvPageContainer">
+            <h1>What are you feeling?</h1>
+            <p className="tvDescription">Pick a genre and we'll give you some movies to pair with your takeout!</p>
 
             <form onSubmit={handleSubmit} className="tvFormContainer">
                 <div className="tvInputContainer">
@@ -125,7 +125,7 @@ const TvShows = () => {
                         )
                     })}
                 </div>
-                <button className="submit">Submit</button>
+                <button className="submitGenre">Submit</button>
             </form>
 
             <div className="tvResultsSection">
@@ -134,18 +134,23 @@ const TvShows = () => {
                         show.poster_path === null
                             ? null
                             : <div key={show.id} className="showContainer">
-                                <img src={`https://image.tmdb.org/t/p/original/${show.poster_path}`} />
-                                <button>Add to your list</button>
+                                <div className="showImage">
+                                    <img src={`https://image.tmdb.org/t/p/original/${show.poster_path}`} />
+                                </div>
+                                <div className="showInfo">
+                                    <h2>{show.name}</h2>
+                                    <button>Add to favourites</button>
+                                </div>
                             </div>
                     )
                 })}
             </div>
 
-            <div className="favouritesSection">
+            {/* <div className="favouritesSection">
                 {favouritedShow.map((book) => {
                     <p>{book}</p>
                 })}
-            </div>
+            </div> */}
 
         </section>
     );
