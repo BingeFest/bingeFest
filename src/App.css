@@ -10,41 +10,134 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 
 
 
-.App {
-  text-align: center;
+/* ======font family====== */
+    /* font-family: 'Luckiest Guy', cursive;
+
+    font-family: 'Newsreader', serif; */
+
+/*========global set up====== */
+
+.wrapper {
+    margin: 0px auto;
+    padding: 0;
+    max-width: 1200px;
+    width: 90%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+    margin: 0;
+    padding: 0;
+    font-size: 125%;
+    overflow-x: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+
+/*========Header====== */
+
+header {
+  color: #393E46;
+  background-color: #00ADB5;
+  height: 15vh;
+  margin: 0 auto;
+  width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.title{
+  font-family: 'Luckiest Guy', cursive;
+  color: #d5dce8;
+  font-size: 3.5rem;
+  margin-top: 5px;
+  text-decoration: none;
+  -webkit-text-stroke: 1.5px black;
+}
+
+.title:hover,.title:focus {
+    color: black;;
+    -webkit-text-stroke: 1.5px #d5dce8;
+    transform: perspective(1.05);
+}
+
+
+
+.classNav{
+  font-family: 'Newsreader', serif;
+  color: #393E46;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.classNav:hover { 
+  color: #d5dce8;
+}
+
+
+nav{
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+ul{
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 25px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+li{
+  display: flex;
+  justify-content: space-around;
+  text-decoration: none;
+  list-style-type: none;
+  color: #393E46;
 }
+
+.formContainerHeader{
+margin: 0 auto;
+text-align: center;
+}
+
+.btHeader {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: 'Newsreader', serif;
+  padding: 5px 11px 5px 11px ;
+  font-size: 1rem;
+  background-color: #00ADB5;
+  border: #00ADB5;
+  border-radius: 7%;
+}
+
+.btHeader:hover, .btHeader:focus {
+transform: scale(1.05);
+background-color: #3fc5cc;
+color: #EEEEEE;
+}
+
+/*========footer====== */
+
+footer {
+  color: #393E46;
+  background-color: #EEEEEE;
+  height: 90px;
+}
+
+footer p {
+  text-align: center;
+  padding-top: 20px;
+}
+
+
+footer p a{
+  text-decoration: none;
+  list-style-type: none;
+  color: #393E46;
+}
+
+footer p a:hover {
+  color: #00ADB5;
+}
+
+/*===========delet later====================== */
+
