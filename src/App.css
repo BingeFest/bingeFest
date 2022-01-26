@@ -45,16 +45,31 @@ header {
 
 .title{
   font-family: 'Luckiest Guy', cursive;
-  color: #393E46;
+  color: #d5dce8;
   font-size: 3.5rem;
   margin-top: 5px;
+  text-decoration: none;
+  -webkit-text-stroke: 1.5px black;
 }
 
-.nav{
+.title:hover{
+    color: black;;
+    -webkit-text-stroke: 1.5px #d5dce8;
+}
+
+
+
+.classNav{
   font-family: 'Newsreader', serif;
   color: #393E46;
   font-size: 2rem;
+  text-decoration: none;
 }
+
+.classNav:hover { 
+  color: #d5dce8;
+}
+
 
 nav{
   align-items: center;
@@ -77,7 +92,25 @@ li{
   color: #393E46;
 }
 
+.formContainerHeader{
+margin: 0 auto;
+}
 
+.btHeader {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: 'Newsreader', serif;
+  padding: 5px 11px 5px 11px ;
+  font-size: 1rem;
+  background-color: #00ADB5;
+  border: #00ADB5;
+  border-radius: 7%;
+}
+
+.btHeader:hover {
+  background-color: #487E95;
+  color: #EEEEEE;
+}
 
 /*========footer====== */
 
@@ -92,14 +125,7 @@ footer p {
   padding-top: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
 footer p a{
   text-decoration: none;
   list-style-type: none;
@@ -111,7 +137,7 @@ footer p a:hover {
 }
 
 /*===========delet later====================== */
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
