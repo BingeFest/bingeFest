@@ -1,8 +1,10 @@
 const Food = () => {
 
     return (
-        <div>hi</div>
+        <div>Food section</div>
     )
 };
 
 export default Food;
+
+// https://source.unsplash.com/random

@@ -2,7 +2,7 @@ import './tvShows.css'
 import { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
 import axios from 'axios';
-import bingeFest from '../firebaseSetup';
+import bingeFest from '../firebaseSetupEB';
 
 const TvShows = () => {
     // error states
