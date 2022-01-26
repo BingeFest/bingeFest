@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react';
 import { Link, Route, Routes, Outlet, useParams } from 'react-router-dom';
 import axios from 'axios';
 // import FavouritesList from './components/FavouritesList.js';
-import TvShows from './components/TvShows.js'
 import Food from './components/Food.js';
 import Header from './components/Header'
 import Footer from './components/Footer';
+import TvShows from './components/TvShows.js'
 
 
 function App() {
