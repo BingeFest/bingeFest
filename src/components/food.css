@@ -1,0 +1,165 @@
+/* --------------------------------------- FORM STYLES --------------------------------------- */
+
+
+.foodPage {
+    margin-top: 3%;
+}
+
+.foodPage form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+    align-items: center;
+}
+
+.foodPage label {
+    font-weight: 600;
+}
+
+.foodPage input,
+.foodPage button {
+    width: 30%;
+}
+
+.foodPage input {
+    border: none;
+    padding: 5px;
+    border-bottom: 1px solid black;
+    margin: 2% auto;
+}
+
+.foodPage button {
+    margin: 2% auto;
+    border: none;
+    padding: 10px 0;
+    transition: 0.2s ease-out;
+}
+
+.foodPage button:hover,
+.foodPage button:focus {
+    transform: scale(1.05);
+    background-color: #3fc5cc;
+    color: #EEEEEE;
+}
+
+.foodPage button:active {
+    transform: scale(1);
+}
+
+/* --------------------------------------- Results List Gallery Styles --------------------------------------- */
+
+.foodList {
+    margin-top: 3%;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    overflow: hidden;
+}
+
+.foodList li {
+    width: calc(100% / 5);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.restaurantBox {
+    position: relative;
+    transition: 0.3s ease-out;
+}
+
+.restaurantBox:hover,
+.restaurantBox:focus {
+    transform: scale(1.05);
+}
+
+.restaurantInfo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.637);
+    z-index: 10;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.3s;
+    padding: 5px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.restaurantInfo h3 {
+    margin: 0;
+    color: #89e6eb;
+    text-shadow: -1px 0 #3fc5cc,
+        0 1px #3fc5cc,
+        1px 0 #3fc5cc,
+        0 -1px #3fc5cc;
+    letter-spacing: 1px;
+}
+
+.restaurantInfo p {
+    padding: 0;
+    margin: 0;
+}
+
+.restaurantInfo a {
+    text-decoration: none;
+    color: #FFF;
+    transition: 0.1s ease-out;
+
+}
+
+.websiteUrl {
+    transition: 0.2s ease-out;
+}
+
+.websiteUrl:hover,
+.websiteUrl:focus {
+    transform: scale(1.3);
+    color: #89e6eb;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.restaurantInfo a:hover,
+.restaurantInfo a:focus {
+    color: #89e6eb;
+    /* transform: scale(1.1); */
+}
+
+
+.restaurantInfo:hover,
+.restaurantInfo:focus {
+    opacity: 1;
+
+}
+
+.restaurantInfo button {
+    /* max-width: 150px; */
+    width: 80%;
+    margin-top: 2%;
+    padding: 2% 0;
+}
+
+.restaurantImage {
+    display: flex;
+}
+
+.foodType {
+    font-style: italic;
+}
+
+.restaurantImage img {
+    max-width: 100%;
+    overflow: hidden;
+    height: 275px;
+    width: 275px;
+    object-fit: cover;
+}
