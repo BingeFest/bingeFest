@@ -52,9 +52,10 @@ header {
   -webkit-text-stroke: 1.5px black;
 }
 
-.title:hover{
+.title:hover,.title:focus {
     color: black;;
     -webkit-text-stroke: 1.5px #d5dce8;
+    transform: perspective(1.05);
 }
 
 
@@ -94,6 +95,7 @@ li{
 
 .formContainerHeader{
 margin: 0 auto;
+text-align: center;
 }
 
 .btHeader {
@@ -107,9 +109,10 @@ margin: 0 auto;
   border-radius: 7%;
 }
 
-.btHeader:hover {
-  background-color: #487E95;
-  color: #EEEEEE;
+.btHeader:hover, .btHeader:focus {
+transform: scale(1.05);
+background-color: #3fc5cc;
+color: #EEEEEE;
 }
 
 /*========footer====== */
@@ -121,7 +124,7 @@ footer {
 }
 
 footer p {
-  margin-top: 0 auto;
+  text-align: center;
   padding-top: 20px;
 }
 
@@ -137,7 +140,4 @@ footer p a:hover {
 }
 
 /*===========delet later====================== */
-/* .App {
-  text-align: center;
-} */
 

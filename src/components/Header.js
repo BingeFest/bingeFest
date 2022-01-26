@@ -20,8 +20,8 @@ const Header = () => {
                     </ul>
                 </nav>
             </header>
-            <div className="formContainerHeader">
-                <form>
+            <div>
+                <form className="formContainerHeader">
                     <button className='btHeader' >Search</button>
                 </form>
             </div>
