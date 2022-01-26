@@ -91,6 +91,18 @@
     justify-content: center;
     transition: 0.3s;
     padding: 5px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.restaurantInfo h3 {
+    margin: 0;
+    color: #89e6eb;
+    text-shadow: -1px 0 #3fc5cc,
+    0 1px #3fc5cc,
+    1px 0 #3fc5cc,
+    0 -1px #3fc5cc;
+    letter-spacing: 1px;
 }
 
 .restaurantInfo p {
@@ -111,7 +123,7 @@
 
 .websiteUrl:hover,
 .websiteUrl:focus {
-    transform: scale(1.1);
+    transform: scale(1.3);
     color: #89e6eb;
     font-weight: 600;
     text-decoration: underline;
@@ -120,6 +132,7 @@
 .restaurantInfo a:hover,
 .restaurantInfo a:focus {
     color: #89e6eb;
+    /* transform: scale(1.1); */
 }
 
 
@@ -130,9 +143,10 @@
 }
 
 .restaurantInfo button {
-    max-width: 150px;
-    width: 60%;
-    margin-top: 5%;
+    /* max-width: 150px; */
+    width: 80%;
+    margin-top: 2%;
+    padding: 2% 0;
 }
 
 .restaurantImage {

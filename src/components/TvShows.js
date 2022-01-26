@@ -2,7 +2,6 @@ import './tvShows.css'
 import { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
 import axios from 'axios';
-import bingeFest from '../firebaseSetupEB';
 
 const TvShows = () => {
     // error states
@@ -77,33 +76,33 @@ const TvShows = () => {
         }
     }, [searchQuery]);
 
-    useEffect(() => {
-        // create a variable that holds our database details
-        const database = getDatabase(bingeFest)
-        // create a variable that references our database
-        const dbRef = ref(database)
+    // useEffect(() => {
+    //     // create a variable that holds our database details
+    //     const database = getDatabase(bingeFest)
+    //     // create a variable that references our database
+    //     const dbRef = ref(database)
 
-        // add an event listener to that variable that will fire
-        // from the database, and call that data 'response'.
+    //     // add an event listener to that variable that will fire
+    //     // from the database, and call that data 'response'.
 
-        // add an event listener to our database that fires when it is updated
-        onValue(dbRef, (response) => {
-            // create a variable to store the new state we want to introduce to our app
-            const newState = [];
+    //     // add an event listener to our database that fires when it is updated
+    //     onValue(dbRef, (response) => {
+    //         // create a variable to store the new state we want to introduce to our app
+    //         const newState = [];
 
-            const data = response.val();
+    //         const data = response.val();
 
-            for (let key in data) {
-                newState.push(data[key]);
-            }
+    //         for (let key in data) {
+    //             newState.push(data[key]);
+    //         }
 
-            setFavouritedShow(newState);
-            // here we use Firebase's .val() method to parse our database info the way we want it
-            console.log(response.val());
-        })
+    //         setFavouritedShow(newState);
+    //         // here we use Firebase's .val() method to parse our database info the way we want it
+    //         console.log(response.val());
+    //     })
 
-        console.log('is this workin')
-    }, [])
+    //     console.log('is this workin')
+    // }, [])
 
     // const firebaseAdd = (event) => {
     //     console.log(event);
