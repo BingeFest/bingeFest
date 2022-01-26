@@ -62,7 +62,6 @@ const Food = () => {
     }, [searchTerm, searchLocation, resultsLimit]);
 
 
-
     return (
         <div>
             <Header />
