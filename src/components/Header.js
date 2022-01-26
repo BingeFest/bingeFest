@@ -2,22 +2,29 @@
 import { Link, Route, Routes, Outlet, useParams } from 'react-router-dom';
 const Header = () => {
 
+    
     return (
         <div>
             <header>
                 <nav className="wrapper">
                     <ul>
                         <li >
-                            <Link className="nav" to="Fest/Takeout">Takeout </Link>
+                            <Link className="classNav" to= '/food'>Takeout </Link>
                         </li>
-                        <li className="nav"> Binge Fest</li>
-                        <li className="title" >
-                            <Link className="nav" to="Fest/TVsows"> TV shows</Link>
+                        <li>
+                            <Link  className="title" to="/"> Binge Fest</Link>
+                            </li>
+                        <li>
+                            <Link className="classNav" to='/tvshows'> TV shows</Link>
                         </li>
                     </ul>
                 </nav>
             </header>
-
+            <div>
+                <form className="formContainerHeader">
+                    <button className='btHeader' >Search</button>
+                </form>
+            </div>
         </div>
     )
 }

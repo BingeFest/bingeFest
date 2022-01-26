@@ -18,10 +18,10 @@ function FavouritesList() {
         const database = getDatabase(bingeFestApp);
         const dbRootAddress = ref(database);
 
-        push (dbRootAddress, favouritedItem, list);
+        push(dbRootAddress, favouritedItem, list);
 
     };
-// Creating another function to allow users to remove favourited items from their list:
+    // Creating another function to allow users to remove favourited items from their list:
     const handleRemove = (favouritedItemId) => {
 
         const database = getDatabase(bingeFestApp);
@@ -39,34 +39,34 @@ function FavouritesList() {
             const data = response.val();
 
             for (let key in data) {
-                newFavourite.push({key: key, name: data[key] });
+                newFavourite.push({ key: key, name: data[key] });
             }
             setList(newFavourite);
         });
-    },[]);
+    }, []);
 
     // Display Favourites List ** To be edited to include true info from API data **
-   return(
-       <div>
-   {list.map((favouritedItem) => {
-            return (
-        <div className='user-list-containter'>
-            <ul>
-                <li className='favourite-item' key={favouritedItem.key}>
-                    <p className='favourite-item-title'>{favouritedItem.name}</p>
-                    <button className='remove-from-list' onClick={() => {handleRemove(favouritedItem.key);}}>
-                        x
-                    </button>
-                </li>
-            </ul>
+    return (
+        <div>
+            {list.map((favouritedItem) => {
+                return (
+                    <div className='user-list-containter'>
+                        <ul>
+                            <li className='favourite-item' key={favouritedItem.key}>
+                                <p className='favourite-item-title'>{favouritedItem.name}</p>
+                                <button className='remove-from-list' onClick={() => { handleRemove(favouritedItem.key); }}>
+                                    x
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                );
+
+            })}
         </div>
+
     );
-      
-    })}
-       </div>
-    
-   );
-    
+
 };
 
 export default FavouritesList;

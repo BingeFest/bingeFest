@@ -61,25 +61,18 @@ function App() {
 
   return (
     <div className="App">
+
+      {/* Routing Configuration */}
+
+      <Routes>
+
+        <Route path='/' element={ <Header />} />
+        <Route path='/food' element={<Food />}> </Route>
+        <Route path='/tvshows' element={<TvShows />}></Route>
+
+      </Routes>
       
-      <Header />
-
-      <h1>Homepage</h1>
-
-      <div className="formContainer">
-        <form onSubmit={handleSubmit}>
-          <input type="text" id="search" onChange={handleInput} value={userInput} placeholder='Enter your location' />
-          <button>Search</button>
-        </form>
-      </div>
-
-      <section className="tvShows">
-        <TvShows />
-        <Food />
-      </section>
-
     <Footer />
-
     </div>
   );
 }
