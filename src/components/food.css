@@ -20,7 +20,6 @@
 .foodPage input,
 .foodPage button {
     width: 30%;
-    /* margin: 0 auto; */
 }
 
 .foodPage input {
@@ -56,7 +55,6 @@
     display: flex;
     flex-wrap: wrap;
     padding: 0;
-    /* margin: 0; */
     overflow: hidden;
 }
 
@@ -124,29 +122,31 @@
     color: #89e6eb;
 }
 
+
+.restaurantInfo:hover,
+.restaurantInfo:focus {
+    opacity: 1;
+    
+}
+
 .restaurantInfo button {
     max-width: 150px;
     width: 60%;
     margin-top: 5%;
 }
 
-.restaurantInfo:hover,
-.restaurantInfo:focus {
-    opacity: 1;
-    /* color: #EEEEEE; */
-    
-}
-
-.restaurantImage
- {
+.restaurantImage {
      display: flex;
  }
+
+.foodType {
+    font-style:italic;
+}
+
 .restaurantImage img {
     max-width: 100%;
-    /* height: 30%; */
     overflow: hidden;
-    /* flex-basis: 300px; */
-    height: 300px;
-    width: 300px;
+    height: 275px;
+    width: 275px;
     object-fit: cover;
 }

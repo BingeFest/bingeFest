@@ -83,7 +83,7 @@ const Food = () => {
                             </div>
                             <div className="restaurantInfo">   
                                         <h2>{restaurant.name}</h2>
-                                        <p>{restaurant.categories[0].title}</p>
+                                        <p className="foodType">{restaurant.categories[0].title}</p>
                                         <p>{restaurant.location.address1}, {restaurant.location.address2}</p>
                                         <p>{restaurant.location.city}</p>
                                         <p>{restaurant.phone}</p>
