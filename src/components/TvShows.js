@@ -2,9 +2,29 @@ import './tvShows.css'
 import { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
 import axios from 'axios';
-import bingeFest from '../firebaseSetup';
+import bingeFestApp from '../firebaseSetup';
 
 const TvShows = () => {
+
+
+        // Initialize state and variables to hold user's favourited items and list of favourited items.
+    const [list, setList] = useState([]);
+    const [favouritedItem, setFavouritedItem] = useState('');
+
+    // Creating an event handler that will run when user clicks button to add item to their list. * handleClick event to be connected to main app 
+    // (**Create button attached to results from API call from food app & movie DB** )
+    const handleAdd = (event) => {
+        setFavouritedItem(event.target.value);
+        event.preventDefault();
+
+        const database = getDatabase(bingeFestApp);
+        const dbRootAddress = ref(database);
+
+        push(dbRootAddress, favouritedItem, list);
+
+    };
+
+
     // error states
     const [error, setError] = useState(null);
     const [alert, setAlert] = useState(false);
@@ -139,18 +159,12 @@ const TvShows = () => {
                                 </div>
                                 <div className="showInfo">
                                     <h2>{show.name}</h2>
-                                    <button>Add to favourites</button>
+                                    <button onClick={handleAdd} value={show.id}>Add to favourites</button>
                                 </div>
                             </div>
                     )
                 })}
             </div>
-
-            {/* <div className="favouritesSection">
-                {favouritedShow.map((book) => {
-                    <p>{book}</p>
-                })}
-            </div> */}
 
         </section>
     );
