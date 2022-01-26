@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -18,10 +17,9 @@ const firebaseConfig = {
 const bingeFestApp = initializeApp(firebaseConfig);
 
 export default bingeFestApp;
-=======
 // firebaseSetup.js - src folder
 
-import { initializeApp } from "firebase/app";
+
 
 // TODO: Add SDKs for Firebase products that you want to use
 
@@ -52,4 +50,3 @@ const firebaseConfig = {
 const bingeFest = initializeApp(firebaseConfig);
 
 export default bingeFest;
->>>>>>> tv-page
