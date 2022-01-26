@@ -2,7 +2,7 @@ import './tvShows.css'
 import { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
 import axios from 'axios';
-// import bingeFest from '../firebaseSetupEB';
+import bingeFest from '../firebaseSetup';
 
 const TvShows = () => {
     // error states
@@ -113,6 +113,7 @@ const TvShows = () => {
         <section className="tvPageContainer">
             <h1>What are you feeling?</h1>
             <p className="tvDescription">Pick a genre and we'll give you some movies to pair with your takeout!</p>
+
             <form onSubmit={handleSubmit} className="tvFormContainer">
                 <div className="tvInputContainer">
                     {buttonContent.map((genre, index) => {
