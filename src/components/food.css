@@ -32,7 +32,7 @@
     margin: 2% auto;
     border: none;
     padding: 10px 0;
-    transition: 0.2s  ease-out;
+    transition: 0.2s ease-out;
 }
 
 .foodPage button:hover,
@@ -113,7 +113,7 @@
     text-decoration: none;
     color: #FFF;
     transition: 0.1s ease-out;
-    
+
 }
 
 .websiteUrl {
@@ -122,7 +122,7 @@
 
 .websiteUrl:hover,
 .websiteUrl:focus {
-    transform: scale(1.1);
+    transform: scale(1.3);
     color: #89e6eb;
     font-weight: 600;
     text-decoration: underline;
@@ -131,27 +131,29 @@
 .restaurantInfo a:hover,
 .restaurantInfo a:focus {
     color: #89e6eb;
+    /* transform: scale(1.1); */
 }
 
 
 .restaurantInfo:hover,
 .restaurantInfo:focus {
     opacity: 1;
-    
+
 }
 
 .restaurantInfo button {
-    max-width: 150px;
-    width: 60%;
-    margin-top: 5%;
+    /* max-width: 150px; */
+    width: 80%;
+    margin-top: 2%;
+    padding: 2% 0;
 }
 
 .restaurantImage {
-     display: flex;
- }
+    display: flex;
+}
 
 .foodType {
-    font-style:italic;
+    font-style: italic;
 }
 
 .restaurantImage img {
