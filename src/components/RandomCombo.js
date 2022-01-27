@@ -75,6 +75,8 @@ const RandomCombo = () => {
                     <input type="text" id="location2" value={userLocation2} onChange={foodInputting2} />
                     <button>Search</button>
             </form>
+           <div className="suggestionBox">
+
            
            {
             userFoodSearch2.length>0
@@ -99,7 +101,7 @@ const RandomCombo = () => {
           userFoodSearch2.length>0
           ? <div className="tvBox" key={tvSearch[randIndex].id}>
               <div className="tvPoster">
-                  <img src="" alt="" />
+                  <img src={`https://image.tmdb.org/t/p/original/${tvSearch[randIndex].poster_path}`} alt={tvSearch[randIndex].name} />   
               </div>
               <div className="tvInfo">
                   <h3>{tvSearch[randIndex].name}</h3>
@@ -108,7 +110,8 @@ const RandomCombo = () => {
               </div>
           </div>
           : <div></div>
-      }
+          }
+        </div>
 
         </div>
     )
