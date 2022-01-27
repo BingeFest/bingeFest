@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import Footer from './Footer';
 import Header from './Header';
-import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
+import {getDatabase, ref, push} from 'firebase/database';
 import bingeFestApp from '../firebaseSetup';
 
 
@@ -11,7 +11,7 @@ const Food = () => {
 
 
             // Initialize state and variables to hold user's favourited items and list of favourited items.
-    const [list, setList] = useState([]);
+    const list = [];
     const [favouritedItem, setFavouritedItem] = useState('');
 
     // Creating an event handler that will run when user clicks button to add item to their list. * handleClick event to be connected to main app 
@@ -120,6 +120,7 @@ const Food = () => {
                     })}
                 </ul>
             </div>
+            <Footer />
         </div>
 
     )

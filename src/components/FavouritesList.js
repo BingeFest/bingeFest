@@ -12,21 +12,6 @@ function FavouritesList() {
     const [list, setList] = useState([]);
     const [favouritedItem, setFavouritedItem] = useState('');
 
-
-     const [error, setError] = useState(null);
-
-    // Creating an event handler that will run when user clicks button to add item to their list. * handleClick event to be connected to main app 
-    // (**Create button attached to results from API call from food app & movie DB** )
-    const handleAdd = (event) => {
-        setFavouritedItem(event.target.value);
-        event.preventDefault();
-
-        const database = getDatabase(bingeFestApp);
-        const dbRootAddress = ref(database);
-
-        push(dbRootAddress, favouritedItem, list);
-
-    };
     // Creating another function to allow users to remove favourited items from their list:
     const handleRemove = (favouritedItemId) => {
 
@@ -50,33 +35,7 @@ function FavouritesList() {
             setList(newFavourite);
         });
     }, []);
-
-      const [searchQuery, setSearchQuery] = useState(0);
-
-    // result states
-    const [tvShows, setTvShows] = useState([]);
-
-       useEffect(() => {
-        if (searchQuery !== 0) {
-            axios({
-                url: `https://api.themoviedb.org/3/tv/{tv_id}?api_key=853030e957dca57316fe835ed75d0d32&language=en-US`,
-                method: 'GET',
-                dataResponse: 'json',
-                params: {
-                    with_genres: searchQuery
-                }
-            }).then(
-                (response) => {
-                    const rawData = response.data.results;
-                    console.log(rawData);
-                    setTvShows(rawData);
-                },
-                (error) => {
-                    setError(error);
-                })
-        }
-    }, [searchQuery]);
-
+    
     // Display Favourites List ** To be edited to include true info from API data **
     return (
         <div>

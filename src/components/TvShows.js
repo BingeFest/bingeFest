@@ -8,7 +8,8 @@ const TvShows = () => {
 
 
         // Initialize state and variables to hold user's favourited items and list of favourited items.
-    const [list, setList] = useState([]);
+    const list = [];
+    // const [list, setList] = useState([]);
     const [favouritedItem, setFavouritedItem] = useState('');
 
     // Creating an event handler that will run when user clicks button to add item to their list. * handleClick event to be connected to main app 
@@ -25,9 +26,9 @@ const TvShows = () => {
     };
 
 
-    // error states
-    const [error, setError] = useState(null);
-    const [alert, setAlert] = useState(false);
+    // // error states
+    // const [error, setError] = useState(null);
+    // const [alert, setAlert] = useState(false);
 
     // button states
     const [buttonContent, setButtonContent] = useState([]);
@@ -40,7 +41,7 @@ const TvShows = () => {
     const [tvShows, setTvShows] = useState([]);
 
     // firebase states
-    const [favouritedShow, setFavouritedShow] = useState([]);
+    // const [favouritedShow, setFavouritedShow] = useState([]);
 
     // put the genre data in each button
     useEffect(() => {
@@ -51,17 +52,18 @@ const TvShows = () => {
         }).then(
             (response) => {
                 const rawData = response.data.genres;
-                setButtonContent(rawData);
+                setButtonContent(rawData);})
 
-                if (rawData.length === 0) {
-                    setAlert(true);
-                } else {
-                    setAlert(false);
-                }
-            },
-            (error) => {
-                setError(error);
-            })
+                // if (rawData.length === 0) {
+                //     setAlert(true);
+                // } else {
+                //     setAlert(false);
+                // }
+            // },
+            // (error) => {
+            //     setError(error);
+            // })
+
     }, []);
 
     // get the genre id of the button the user has clicked on
@@ -90,9 +92,6 @@ const TvShows = () => {
                     const rawData = response.data.results;
                     console.log(rawData);
                     setTvShows(rawData);
-                },
-                (error) => {
-                    setError(error);
                 })
         }
     }, [searchQuery]);

@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { Link, Route, Routes, Outlet, useParams } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 // import FavouritesList from './components/FavouritesList.js';
 import Food from './components/Food.js';
@@ -10,54 +10,6 @@ import TvShows from './components/TvShows.js'
 
 
 function App() {
-
-  const [error, setError] = useState(null);
-  const [alert, setAlert] = useState(false);
-
-  const [tvShows, setTvShows] = useState([]);
-  const [takeout, setTakeout] = useState([]);
-
-  const [userInput, setUserInput] = useState('');
-  const [searchQuery, setSearchQuery] = useState('');
-
-  useEffect(() => {
-      axios({
-        url: `https://api.themoviedb.org/3/discover/tv?api_key=853030e957dca57316fe835ed75d0d32`,
-        method: 'GET',
-        dataResponse: 'json',
-      }).then(
-        (response) => {
-          const rawData = response.data.results;
-          console.log(rawData);
-
-          if (rawData.length === 0) {
-            setAlert(true);
-          } else {
-            setTvShows(rawData);
-            setAlert(false);
-          }
-        },
-        (error) => {
-          setError(error);
-        })
-  }, []);
-
-
-  // Onchange for location input
-  const handleInput = (event) => {
-    // put the captured text in userInput
-    setUserInput(event.target.value);
-  }
-
-  // Handle our location submit
-  // empty previous array and replace with new search
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // set the term that calls our API
-    setSearchQuery(userInput);
-    // RESET array / results section
-    setUserInput("");
-  }
 
   return (
     <div className="App">
