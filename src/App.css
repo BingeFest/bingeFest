@@ -115,6 +115,34 @@ background-color: #3fc5cc;
 color: #EEEEEE;
 }
 
+/* ======Favourites List */
+
+.favContainer{
+  display: flex;
+  flex-direction: row;
+}
+
+.imgFavourites {
+  width: 45%;
+}
+
+.favourite-item {
+  align-items: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 95%;
+  width: 500px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+
+
 /*========footer====== */
 
 footer {

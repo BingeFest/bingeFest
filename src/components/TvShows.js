@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { getDatabase, ref, push} from 'firebase/database';
 import axios from 'axios';
 import bingeFestApp from '../firebaseSetup';
+import Header from './Header'
 
 
 const TvShows = () => {
@@ -141,6 +142,7 @@ const TvShows = () => {
 
     return (
         <section className="tvPageWrapper">
+            <Header />
             <section className="tvPageContainer">
                 <h1>What are you feeling?</h1>
                 <p className="tvDescription">Pick a genre and we'll give you some movies to pair with your takeout!</p>

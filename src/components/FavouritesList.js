@@ -27,26 +27,28 @@ function FavouritesList() {
         onValue(dbRootAddress, (response) => {
             const newFavourite = [];
             const data = response.val();
-console.log(data);
+            console.log(data);
             for (let key in data) {
-                newFavourite.push( 
-                    { key: key, 
-                    Lorraine: data[key] }
+                newFavourite.push(
+                    {
+                        key: key,
+                        Lorraine: data[key]
+                    }
                 );
             }
             setList(newFavourite);
         });
     }, []);
- console.log(list);
+    console.log(list);
     // Display Favourites List ** To be edited to include true info from API data **
- return (
-        <div>
+    return (
+        <div className='wrapper favContainer'>
             {list.map((favouritedItem) => {
                 return (
-                    <div key={favouritedItem.key}  className='user-list-containter'>
+                    <div key={favouritedItem.key} className='user-list-containter'>
                         <ul>
                             <li className='favourite-item'>
-                                <img src={`https://image.tmdb.org/t/p/original/${favouritedItem.Lorraine.poster_path}`} alt={favouritedItem.Lorraine.name} />
+                                <img className='imgFavourites' src={`https://image.tmdb.org/t/p/original/${favouritedItem.Lorraine.poster_path}`} alt={favouritedItem.Lorraine.name} />
                                 <p className='favourite-item-title'>{favouritedItem.Lorraine.name}</p>
                                 <button className='remove-from-list' onClick={() => { handleRemove(favouritedItem.key); }}>
                                     x
