@@ -7,6 +7,7 @@ import Food from './components/Food.js';
 import Header from './components/Header'
 import Footer from './components/Footer';
 import TvShows from './components/TvShows.js'
+import RandomCombo from './components/RandomCombo.js';
 
 
 function App() {
@@ -63,7 +64,7 @@ function App() {
     <div className="App">
 
       {/* Routing Configuration */}
-
+      <RandomCombo />
       <Routes>
 
         <Route path='/' element={ <Header />} />
