@@ -2,30 +2,10 @@
 import { useState, useEffect } from 'react';
 import Footer from './Footer';
 import Header from './Header';
-import {getDatabase, ref, push} from 'firebase/database';
-import bingeFestApp from '../firebaseSetup';
 
 
 
 const Food = () => {
-
-
-            // Initialize state and variables to hold user's favourited items and list of favourited items.
-    const list = [];
-    const [favouritedItem, setFavouritedItem] = useState('');
-
-    // Creating an event handler that will run when user clicks button to add item to their list. * handleClick event to be connected to main app 
-    // (**Create button attached to results from API call from food app & movie DB** )
-    const handleAdd = (event) => {
-        setFavouritedItem(event.target.value);
-        event.preventDefault();
-
-        const database = getDatabase(bingeFestApp);
-        const dbRootAddress = ref(database);
-
-        push(dbRootAddress, favouritedItem, list);
-
-    };
 
     const [userInputting, setUserInputting] = useState('');
     const [userLocation, setUserLocation] = useState('');
@@ -112,7 +92,7 @@ const Food = () => {
                                         <p>{restaurant.phone}</p>
                                         <p>Rating: {restaurant.rating}/5</p>
                                         <p><a href={restaurant.url}>Website</a></p>
-                                        <button onClick={handleAdd} value={restaurant.id}>Add to favourites</button>
+                                        <button>Add to favourites</button>
                                     </div>
                                 </div>
                             </li>
@@ -120,7 +100,6 @@ const Food = () => {
                     })}
                 </ul>
             </div>
-            <Footer />
         </div>
 
     )
