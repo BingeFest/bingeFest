@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
+import { getDatabase, ref, onValue, remove } from 'firebase/database';
 import bingeFestApp from '../firebaseSetup';
-import axios from 'axios';
-
 
 function FavouritesList() {
 
@@ -10,7 +8,7 @@ function FavouritesList() {
 
     // Initialize state and variables to hold user's favourited items and list of favourited items.
     const [list, setList] = useState([]);
-    const [favouritedItem, setFavouritedItem] = useState('');
+    // const [favouritedItem, setFavouritedItem] = useState('');
 
     // Creating another function to allow users to remove favourited items from their list:
     const handleRemove = (favouritedItemId) => {

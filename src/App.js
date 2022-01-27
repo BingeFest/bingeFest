@@ -1,7 +1,5 @@
 import './App.css';
-import { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import axios from 'axios';
 // import FavouritesList from './components/FavouritesList.js';
 import Food from './components/Food.js';
 import Header from './components/Header'
