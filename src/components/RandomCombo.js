@@ -29,7 +29,6 @@ const RandomCombo = () => {
 
     const randNumber = randNumberGenerator();
 
-//  https://api.themoviedb.org/3/tv/popular?api_key=853030e957dca57316fe835ed75d0d32&language=en-US&page=1
 
     useEffect(() => {
         axios({
@@ -79,7 +78,7 @@ const RandomCombo = () => {
             {
                 userFoodSearch2.length>0
                 ? <h3>Your meal and entertainment:</h3>
-                : <h3></h3>
+                : <h3>What are you waiting for?</h3>
             }
            <div className="suggestionBox">
 
