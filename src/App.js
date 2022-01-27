@@ -1,6 +1,12 @@
 import './App.css';
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
+import { Link, Route, Routes, Outlet, useParams } from 'react-router-dom';
 import axios from 'axios';
+// import FavouritesList from './components/FavouritesList.js';
+import Food from './components/Food.js';
+import Header from './components/Header'
+import Footer from './components/Footer';
+import TvShows from './components/TvShows.js'
 
 
 function App() {
@@ -55,23 +61,18 @@ function App() {
 
   return (
     <div className="App">
-      <nav>
-        <ul>
-          <li>Home</li>
-          <li>Takeout</li>
-          <li>TV shows</li>
-        </ul>
-      </nav>
 
-      <h1>Homepage</h1>
+      {/* Routing Configuration */}
 
-      <div className="formContainer">
-        <form onSubmit={handleSubmit}>
-          <input type="text" id="search" onChange={handleInput} value={userInput} placeholder='Enter your location' />
-          <button>Search</button>
-        </form>
-      </div>
+      <Routes>
 
+        <Route path='/' element={ <Header />} />
+        <Route path='/food' element={<Food />}> </Route>
+        <Route path='/tvshows' element={<TvShows />}></Route>
+
+      </Routes>
+      
+    <Footer />
     </div>
   );
 }
@@ -112,7 +113,6 @@ export default App;
   // - Create another state called 'list' that will store the user's favourited items
   // - Within each result component, use an addToList function that pushes the object into the list state
   // - Create a list component that will hold the list items (slide-out menu)
- 
 
 
 

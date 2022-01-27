@@ -1,0 +1,139 @@
+button {
+    margin: 2% auto;
+    border: none;
+    padding: 10px 0;
+    transition: 0.2s ease-out;
+    width: 100px;
+}
+
+.tvPageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.tvDescription {
+    margin-bottom: 4%;
+}
+
+.tvFormContainer {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+}
+
+.tvInputContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 2%;
+}
+
+.radioContainer {
+    display: flex;
+    align-items: center;
+    width: 110px;
+    height: 50px;
+    border: none;
+    padding: 10px 0;
+    transition: 0.2s ease-out;
+    width: 200px;
+    position: relative;
+}
+
+.radioContainer:hover {
+    background-color: #c0c0c0;
+}
+
+.radioContainer:focus {
+    background-color: darkgray;
+}
+
+.radioContainer:focus-within {
+    background-color: #3fc5cc;
+}
+
+
+.tvPageContainer label[for="genre"] {
+    position: absolute;
+}
+
+.tvPageContainer input[type="radio"] {
+    width: 100%;
+    height: 100%;
+    opacity: 0.01;
+    z-index: 100;
+}
+
+button.submitGenre {
+    border: none;
+    padding: 10px 0;
+    transition: 0.2s ease-out;
+    width: 500px;
+}
+
+button.submitGenre:hover {
+    transform: scale(1.05);
+    background-color: #3fc5cc;
+    color: #EEEEEE;
+}
+
+.tvResultsSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.showContainer {
+    width: 250px;
+    height: 300px;
+    position: relative;
+    margin-top: 10px;
+}
+
+.showContainer:hover,
+.showContainer:focus {
+    transform: scale(1.40);
+    z-index: 150;
+}
+
+.showInfo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.637);
+    z-index: 10;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.3s;
+    padding: 5px;
+}
+
+.showInfo button:hover {
+    transform: scale(1.05);
+    background-color: #3fc5cc;
+    color: #EEEEEE;
+}
+
+.showInfo:hover,
+.showInfo:focus {
+    opacity: 1;
+}
+
+
+.showContainer img {
+    width: 100%;
+    height: 100%;
+}
