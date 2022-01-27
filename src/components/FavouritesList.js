@@ -1,26 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
 import bingeFestApp from '../firebaseSetup';
+import axios from 'axios';
 
 
 function FavouritesList() {
+
+
 
     // Initialize state and variables to hold user's favourited items and list of favourited items.
     const [list, setList] = useState([]);
     const [favouritedItem, setFavouritedItem] = useState('');
 
-    // Creating an event handler that will run when user clicks button to add item to their list. * handleClick event to be connected to main app 
-    // (**Create button attached to results from API call from food app & movie DB** )
-    const handleClick = (event) => {
-        setFavouritedItem(event.target.value);
-        event.preventDefault();
-
-        const database = getDatabase(bingeFestApp);
-        const dbRootAddress = ref(database);
-
-        push(dbRootAddress, favouritedItem, list);
-
-    };
     // Creating another function to allow users to remove favourited items from their list:
     const handleRemove = (favouritedItemId) => {
 
@@ -44,7 +35,7 @@ function FavouritesList() {
             setList(newFavourite);
         });
     }, []);
-
+    
     // Display Favourites List ** To be edited to include true info from API data **
     return (
         <div>
