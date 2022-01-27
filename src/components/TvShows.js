@@ -1,6 +1,6 @@
 import './tvShows.css'
 import { useState, useEffect } from 'react';
-import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
+import { getDatabase, ref, push } from 'firebase/database';
 import axios from 'axios';
 import bingeFestApp from '../firebaseSetup';
 
@@ -154,7 +154,7 @@ const TvShows = () => {
                             ? null
                             : <div key={show.id} className="showContainer">
                                 <div className="showImage">
-                                    <img src={`https://image.tmdb.org/t/p/original/${show.poster_path}`} />
+                                    <img src={`https://image.tmdb.org/t/p/original/${show.poster_path}`} alt={show.name} />
                                 </div>
                                 <div className="showInfo">
                                     <h2>{show.name}</h2>
