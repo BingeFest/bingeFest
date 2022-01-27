@@ -16,20 +16,20 @@ const RandomCombo = () => {
         setUserLocation2(event.target.value);
     }
 
-    const handleSubmitting2 = (event) => {
+     const handleSubmitting2 = (event) => {
         event.preventDefault();
         setSearchLocation2(userLocation2);
         setUserLocation2('');
-        setRandIndex(randNumber);
+        setRandIndex(randNumber); 
     }
 
     const randNumberGenerator = () => {
-        return Math.floor(Math.random() * 20);
+       return Math.floor(Math.random() * 20);
     }
 
     const randNumber = randNumberGenerator();
 
-    //  https://api.themoviedb.org/3/tv/popular?api_key=853030e957dca57316fe835ed75d0d32&language=en-US&page=1
+//  https://api.themoviedb.org/3/tv/popular?api_key=853030e957dca57316fe835ed75d0d32&language=en-US&page=1
 
     useEffect(() => {
         axios({
@@ -42,7 +42,7 @@ const RandomCombo = () => {
                 setTvSearch(rawData);
                 console.log(rawData[randIndex]);
             },
-        )
+            )
     }, [randIndex]);
 
     useEffect(() => {
@@ -68,50 +68,58 @@ const RandomCombo = () => {
 
 
     return (
-        <div className="wrapper randomSuggestion">
-            <h2>Tell us where you are, and hit the button to get a random combo</h2>
+        <div className="randomSuggestion">
+            <h2>Random Combo!</h2>
+            <h3>Need help?</h3>
             <form onSubmit={handleSubmitting2}>
-                <label htmlFor="location2">Where are you?</label>
-                <input type="text" id="location2" value={userLocation2} onChange={foodInputting2} />
-                <button>Search</button>
+                    <label htmlFor="location2">Tell us where you are:</label>
+                    <input type="text" id="location2" value={userLocation2} onChange={foodInputting2} />
+                    <button>Search</button>
             </form>
-            <div className="suggestionBox">
+            {
+                userFoodSearch2.length>0
+                ? <h3>Your meal and entertainment:</h3>
+                : <h3></h3>
+            }
+           <div className="suggestionBox">
 
+           
+           {
+            userFoodSearch2.length>0
+            ? <div className="restaurantBox restaurantBox2" key={userFoodSearch2[randIndex].id}>
+                    <div className="restaurantImage2">
+                        <img src={userFoodSearch2[randIndex].image_url} alt={`${userFoodSearch2[randIndex].name} restaurant.`} />
+                    </div>
+                    <div className="restaurantInfo">
+                        <h3>{userFoodSearch2[randIndex].name}</h3>
+                        <p className="foodType">{userFoodSearch2[randIndex].categories[0].title}</p>
+                        <p>{userFoodSearch2[randIndex].location.address1}, {userFoodSearch2[randIndex].location.address2}</p>
+                        <p>{userFoodSearch2[randIndex].categories[0].title}</p>
+                        <p>{userFoodSearch2[randIndex].location.city}</p>
+                        <p>{userFoodSearch2[randIndex].phone}</p>
+                        <p>Rating: {userFoodSearch2[randIndex].rating}/5</p>
+                        <p><a href={userFoodSearch2[randIndex].url}>Website</a></p>
+                    </div>
+                </div>
+            : <div></div>
+      }
+      {
+          userFoodSearch2.length>0
+          ? <div className="tvBox" key={tvSearch[randIndex].id}>
 
-                {
-                    userFoodSearch2.length > 0
-                        ? <div className="restaurantBox restaurantBox2" key={userFoodSearch2[randIndex].id}>
-                            <div className="restaurantImage">
-                                <img src={userFoodSearch2[randIndex].image_url} alt={`${userFoodSearch2[randIndex].name} restaurant.`} />
-                            </div>
-                            <div className="restaurantInfo">
-                                <h3>{userFoodSearch2[randIndex].name}</h3>
-                                <p className="foodType">{userFoodSearch2[randIndex].categories[0].title}</p>
-                                <p>{userFoodSearch2[randIndex].location.address1}, {userFoodSearch2[randIndex].location.address2}</p>
-                                <p>{userFoodSearch2[randIndex].categories[0].title}</p>
-                                <p>{userFoodSearch2[randIndex].location.city}</p>
-                                <p>{userFoodSearch2[randIndex].phone}</p>
-                                <p>Rating: {userFoodSearch2[randIndex].rating}/5</p>
-                                <p><a href={userFoodSearch2[randIndex].url}>Website</a></p>
-                            </div>
-                        </div>
-                        : <div></div>
-                }
-                {
-                    userFoodSearch2.length > 0
-                        ? <div className="tvBox" key={tvSearch[randIndex].id}>
-                            <div className="tvPoster">
-                                <img src={`https://image.tmdb.org/t/p/original/${tvSearch[randIndex].poster_path}`} alt={tvSearch[randIndex].name} />
-                            </div>
-                            <div className="tvInfo">
-                                <h3>{tvSearch[randIndex].name}</h3>
-                                <p>Score: {tvSearch[randIndex].vote_average}</p>
+              <div className="tvPoster">
+                  <img src={`https://image.tmdb.org/t/p/original/${tvSearch[randIndex].poster_path}`} alt={tvSearch[randIndex].name} />   
+              </div>
+              <div className="tvInfo">
+                  <h3>{tvSearch[randIndex].name}</h3>
+                  <p>{tvSearch[randIndex].overview}</p>
+                  <p>Score: {tvSearch[randIndex].vote_average}</p>
 
-                            </div>
-                        </div>
-                        : <div></div>
-                }
-            </div>
+              </div>
+          </div>
+          : <div></div>
+          }
+        </div>
 
         </div>
     )
