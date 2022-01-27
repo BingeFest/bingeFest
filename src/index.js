@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './components/food.css';
+import './components/randomcombo.css';
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(

@@ -69,19 +69,25 @@ const RandomCombo = () => {
 
     return (
         <div className="randomSuggestion">
-            <h2>Tell us where you are, and hit the button to get a random combo</h2>
+            <h2>Random Combo!</h2>
+            <h3>Need help?</h3>
             <form onSubmit={handleSubmitting2}>
-                    <label htmlFor="location2">Where are you?</label>
+                    <label htmlFor="location2">Tell us where you are:</label>
                     <input type="text" id="location2" value={userLocation2} onChange={foodInputting2} />
                     <button>Search</button>
             </form>
+            {
+                userFoodSearch2.length>0
+                ? <h3>Your meal and entertainment:</h3>
+                : <h3></h3>
+            }
            <div className="suggestionBox">
 
            
            {
             userFoodSearch2.length>0
             ? <div className="restaurantBox restaurantBox2" key={userFoodSearch2[randIndex].id}>
-                    <div className="restaurantImage">
+                    <div className="restaurantImage2">
                         <img src={userFoodSearch2[randIndex].image_url} alt={`${userFoodSearch2[randIndex].name} restaurant.`} />
                     </div>
                     <div className="restaurantInfo">
@@ -100,11 +106,13 @@ const RandomCombo = () => {
       {
           userFoodSearch2.length>0
           ? <div className="tvBox" key={tvSearch[randIndex].id}>
+
               <div className="tvPoster">
                   <img src={`https://image.tmdb.org/t/p/original/${tvSearch[randIndex].poster_path}`} alt={tvSearch[randIndex].name} />   
               </div>
               <div className="tvInfo">
                   <h3>{tvSearch[randIndex].name}</h3>
+                  <p>{tvSearch[randIndex].overview}</p>
                   <p>Score: {tvSearch[randIndex].vote_average}</p>
 
               </div>
