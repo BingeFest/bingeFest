@@ -1,6 +1,6 @@
 import './tvShows.css'
 import { useState, useEffect } from 'react';
-import { getDatabase, ref, push } from 'firebase/database';
+import { getDatabase, ref, push} from 'firebase/database';
 import axios from 'axios';
 import bingeFestApp from '../firebaseSetup';
 
