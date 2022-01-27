@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { getDatabase, ref, push} from 'firebase/database';
 import axios from 'axios';
 import bingeFestApp from '../firebaseSetup';
+import Header from './Header'
+import Footer from './Footer'
 
 const TvShows = () => {
 
@@ -129,43 +131,48 @@ const TvShows = () => {
 
 
     return (
-        <section className="tvPageContainer">
-            <h1>What are you feeling?</h1>
-            <p className="tvDescription">Pick a genre and we'll give you some movies to pair with your takeout!</p>
+        <section className="tvPageWrapper">
+            <section className="tvPageContainer">
+                <h1>What are you feeling?</h1>
+                <p className="tvDescription">Pick a genre and we'll give you some movies to pair with your takeout!</p>
 
-            <form onSubmit={handleSubmit} className="tvFormContainer">
-                <div className="tvInputContainer">
-                    {buttonContent.map((genre, index) => {
+                <form onSubmit={handleSubmit} className="tvFormContainer">
+                    <div className="tvInputContainer">
+                        {buttonContent.map((genre, index) => {
+                            return (
+                                <div key={genre.id} className="radioContainer" tabIndex={index}>
+                                    <label htmlFor="genre">{genre.name}</label>
+                                    <input type='radio' onClick={handleInput} value={genre.id} key={genre.id} text={genre.name} />
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <button className="submitGenre">Submit</button>
+                </form>
+
+                <div className="tvResultsSection">
+                    {tvShows.map((show) => {
                         return (
-                            <div key={genre.id} className="radioContainer" tabIndex={index}>
-                                <label htmlFor="genre">{genre.name}</label>
-                                <input type='radio' onClick={handleInput} value={genre.id} key={genre.id} text={genre.name} />
-                            </div>
+                            show.poster_path === null
+                                ? null
+                                : <div key={show.id} className="showContainer">
+                                    <div className="showImage">
+                                        <img src={`https://image.tmdb.org/t/p/original/${show.poster_path}`} alt={show.name} />
+                                    </div>
+                                    <div className="showInfo">
+                                        <h3>{show.name}</h3>
+                                        {show.overview === ""
+                                            ? <p>No description.</p>
+                                            : <p>{show.overview}</p>}
+                                        <p>Made in <span>{show.origin_country[0]}</span></p>
+                                        <p>{Math.floor(show.popularity)} likes</p>
+                                        <button onClick={handleAdd} value={show.id}>Add to favourites</button>
+                                    </div>
+                                </div>
                         )
                     })}
                 </div>
-                <button className="submitGenre">Submit</button>
-            </form>
-
-            <div className="tvResultsSection">
-                {tvShows.map((show) => {
-                    return (
-                        show.poster_path === null
-                            ? null
-                            : <div key={show.id} className="showContainer">
-                                <div className="showImage">
-                                    <img src={`https://image.tmdb.org/t/p/original/${show.poster_path}`} alt={show.name} />
-                                </div>
-                                <div className="showInfo">
-                                    <h2>{show.name}</h2>
-                                    <button onClick={handleAdd} value={show.id}>Add to favourites</button>
-                                </div>
-                            </div>
-                    )
-                })}
-            </div>
-
-
+            </section>
         </section>
     );
 
