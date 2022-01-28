@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue, remove } from 'firebase/database';
 import bingeFestApp from '../firebaseSetup';
-// import tvShows from './TvShows';
+
 
 function FavouritesList() {
 
@@ -43,9 +43,11 @@ function FavouritesList() {
     // Display Favourites List ** To be edited to include true info from API data **
     return (
         <div className='wrapper favContainer'>
+            <h4>Watch List</h4>
             {list.map((favouritedItem) => {
                 return (
                     <div key={favouritedItem.key} className='user-list-containter'>
+
                         <ul>
                             <li className='favourite-item'>
                                 <img className='imgFavourites' src={`https://image.tmdb.org/t/p/original/${favouritedItem.Lorraine.poster_path}`} alt={favouritedItem.Lorraine.name} />

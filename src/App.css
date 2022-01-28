@@ -120,10 +120,32 @@ color: #EEEEEE;
 .favContainer{
   display: flex;
   flex-direction: row;
+  overflow-x: scroll;
 }
 
 .imgFavourites {
   width: 45%;
+}
+
+.remove-from-list{
+    width: 2em;  
+    margin: 2% auto;
+    border: none;
+    padding: 10px 0;
+    transition: 0.2s ease-out;
+
+}
+
+.remove-from-list:hover,
+.remove-from-list:focus {
+    cursor: pointer;    
+    transform: scale(1.05);
+    background-color: #3fc5cc;
+    color: #EEEEEE;
+}
+
+.remove-from-list:active {
+    transform: scale(1);
 }
 
 .favourite-item {
@@ -132,7 +154,6 @@ color: #EEEEEE;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 95%;
   width: 500px;
   color: white;
   background-color: rgba(0, 0, 0, 0.2);

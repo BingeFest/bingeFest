@@ -12,17 +12,18 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
 
       {/* Routing Configuration */}
 
       <Routes>
 
-        <Route path='/' element={ <Header />} />
+        <Route path='/' element={''} />
         <Route path='/food' element={<Food />}> </Route>
         <Route path='/tvshows' element={<TvShows />}></Route>
+        <Route path='/randomcombo' element={<RandomCombo />}></Route>
 
       </Routes>
-      <RandomCombo />
     <Footer />
     </div>
   );

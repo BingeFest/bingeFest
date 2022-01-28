@@ -1,7 +1,6 @@
 // import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-import Header from './Header';
 
 
 
@@ -65,7 +64,6 @@ const Food = () => {
 
     return (
         <div>
-            <Header />
             <div className="foodPage">
                 <form onSubmit={handleSubmitting}>
                     <label htmlFor="foodSearch">What are you craving? </label>
@@ -92,7 +90,6 @@ const Food = () => {
                                         <p>{restaurant.phone}</p>
                                         <p>Rating: {restaurant.rating}/5</p>
                                         <p><a href={restaurant.url}>Website</a></p>
-                                        <button>Add to favourites</button>
                                     </div>
                                 </div>
                             </li>
