@@ -9,12 +9,9 @@ const TvShows = () => {
 
 
         // Initialize state and variables to hold user's favourited items and list of favourited items.
-    // const list = [];
-    // const [list, setList] = useState([]);
+ 
     const [favoritedItem, setFavoritedItem] = useState('');
-    // // error states
-    // const [error, setError] = useState(null);
-    // const [alert, setAlert] = useState(false);
+
 
     // button states
     const [buttonContent, setButtonContent] = useState([]);
@@ -27,8 +24,7 @@ const TvShows = () => {
     const [tvShows, setTvShows] = useState([]);
 
     // firebase states
-    // const [favouritedShow, setFavouritedShow] = useState([]);
-    
+
     // Creating an event handler that will run when user clicks button to add item to their list. * handleClick event to be connected to main app 
     // (**Create button attached to results from API call from food app & movie DB** )
     const handleAdd = (event) => {
@@ -62,15 +58,6 @@ const TvShows = () => {
                 const rawData = response.data.genres;
                 setButtonContent(rawData);})
 
-                // if (rawData.length === 0) {
-                //     setAlert(true);
-                // } else {
-                //     setAlert(false);
-                // }
-            // },
-            // (error) => {
-            //     setError(error);
-            // })
 
     }, []);
 
@@ -98,42 +85,10 @@ const TvShows = () => {
             }).then(
                 (response) => {
                     const rawData = response.data.results;
-                    console.log(rawData);
                     setTvShows(rawData);
                 })
         }
     }, [searchQuery]);
-
-    // useEffect(() => {
-    //     // create a variable that holds our database details
-    //     const database = getDatabase(bingeFest)
-    //     // create a variable that references our database
-    //     const dbRef = ref(database)
-
-    //     // add an event listener to that variable that will fire
-    //     // from the database, and call that data 'response'.
-
-    //     // add an event listener to our database that fires when it is updated
-    //     onValue(dbRef, (response) => {
-    //         // create a variable to store the new state we want to introduce to our app
-    //         const newState = [];
-
-    //         const data = response.val();
-
-    //         for (let key in data) {
-    //             newState.push(data[key]);
-    //         }
-
-    //         setFavouritedShow(newState);
-    //         // here we use Firebase's .val() method to parse our database info the way we want it
-    //         console.log(response.val());
-    //     })
-    // }, [])
-
-    // const firebaseAdd = (event) => {
-    //     console.log(event);
-    // };
-
 
 
     return (

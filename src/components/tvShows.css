@@ -266,6 +266,10 @@ button {
 
 /* ========== FORM =========== */
 
+.tvDescription{
+    text-align: center;
+}
+
 .tvFormContainer {
     display: flex;
     flex-direction: column;

@@ -10,7 +10,7 @@ function FavouritesList() {
 
     // Initialize state and variables to hold user's favourited items and list of favourited items.
     const [list, setList] = useState([]);
-    // const [favouritedItem, setFavouritedItem] = useState('');
+
 
     // Creating another function to allow users to remove favourited items from their list:
     const handleRemove = (favouritedItemId) => {
@@ -28,7 +28,7 @@ function FavouritesList() {
         onValue(dbRootAddress, (response) => {
             const newFavourite = [];
             const data = response.val();
-            console.log(data);
+
             for (let key in data) {
                 newFavourite.push(
                     {
@@ -40,7 +40,7 @@ function FavouritesList() {
             setList(newFavourite);
         });
     }, []);
-    console.log(list);
+
     // Display Favourites List ** To be edited to include true info from API data **
     return (
         <> 
