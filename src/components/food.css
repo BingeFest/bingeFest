@@ -107,11 +107,14 @@
         1px 0 #3fc5cc,
         0 -1px #3fc5cc;
     letter-spacing: 1px;
+    line-height: 26px;
 }
 
 .restaurantInfo p {
-    padding: 0;
-    margin: 0;
+    margin: 0 auto;
+    padding: 4% 0;
+    width: 80%;
+    line-height: 11px;
 }
 
 .restaurantInfo a {

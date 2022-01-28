@@ -17,7 +17,6 @@ const Food = () => {
 
 
     const handleInputting = (event) => {
-        // console.log(`Is this working?`, event.target.value);
         setUserInputting(event.target.value);
     }
 
@@ -37,7 +36,7 @@ const Food = () => {
 
     useEffect(() => {
         setResultsLimit(20);
-        // const [foodSearch, setFoodSearch] =   useState()
+
         const proxiedUrl = 'https://api.yelp.com/v3/businesses/search';
         const apiKey = 'pXx_2tLHf5hbYjiMJHosi3rvDwOi5rAww8z9Q6xLFnnbUtJToMyU5lZ9YPvEqKA8SC5iHMuB7tfvoOb-WBjkdSzqvmrUdD-qSI6gxfxwUXAo3lBFNngV3OWHGzPsYXYx';
         const url = new URL('https://proxy.hackeryou.com');
@@ -53,9 +52,7 @@ const Food = () => {
             .then(response => response.json())
             .then(data => {
                 if (data.businesses) {
-                    //    const foodResults = data.businesses;
                     setUserFoodSearch(data.businesses);
-                    //    console.log(data.businesses)
                 }
             });
     }, [searchTerm, searchLocation, resultsLimit]);
