@@ -47,7 +47,7 @@ const RandomCombo = () => {
     useEffect(() => {
         const proxiedUrl = 'https://api.yelp.com/v3/businesses/search';
         const apiKey = 'pXx_2tLHf5hbYjiMJHosi3rvDwOi5rAww8z9Q6xLFnnbUtJToMyU5lZ9YPvEqKA8SC5iHMuB7tfvoOb-WBjkdSzqvmrUdD-qSI6gxfxwUXAo3lBFNngV3OWHGzPsYXYx';
-        const url = new URL('http://proxy.hackeryou.com');
+        const url = new URL('https://proxy.hackeryou.com');
         url.search = new URLSearchParams({
             reqUrl: proxiedUrl,
             'params[key]': apiKey,
