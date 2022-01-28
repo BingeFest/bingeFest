@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getDatabase, ref, onValue, remove } from 'firebase/database';
 import bingeFestApp from '../firebaseSetup';
+import './favouriteslist.css'
 
 
 function FavouritesList() {
