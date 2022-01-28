@@ -38,7 +38,6 @@ html {
 header {
   color: #393E46;
   background-color: #00ADB5;
-  height: 15vh;
   margin: 0 auto;
   width: 100%;
 }
@@ -60,8 +59,7 @@ header {
 
 
 
-.classNav{
-  font-family: 'Newsreader', serif;
+.classNav {
   color: #393E46;
   font-size: 2rem;
   text-decoration: none;
@@ -78,11 +76,15 @@ nav{
 
 ul{
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-content: center;
   align-items: center;
   margin: 0 auto;
-  padding: 25px;
+  width: 100%;
+  gap: 75px;
+  padding: 40px;
+  line-height: .4;
 }
 
 li{
@@ -101,7 +103,6 @@ text-align: center;
 .btHeader {
   margin-top: 30px;
   margin-bottom: 30px;
-  font-family: 'Newsreader', serif;
   padding: 5px 11px 5px 11px ;
   font-size: 1rem;
   background-color: #00ADB5;
@@ -114,6 +115,37 @@ transform: scale(1.05);
 background-color: #3fc5cc;
 color: #EEEEEE;
 }
+
+
+/* Landing Page Welcome Message */
+
+.welcome-message-title{
+  padding-top: 5%;
+}
+
+.welcome-message-title,
+.welcome-message{
+  color: whitesmoke;
+  text-align: center;
+  margin: 0 200px;
+  line-height: 2;
+  text-shadow: 2px 1px #3fc5cc;
+
+}
+
+.welcome-message{
+  font-size: 1.5em;
+
+}
+
+.welcome-section{
+  background-image: url(./assets/welcome-background-image.jpg);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 
 
 /*========footer====== */
