@@ -1,0 +1,105 @@
+.randomSuggestion {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.randomSuggestion form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.randomSuggestion input {
+    margin: 10% 0;
+    padding: 3%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.randomSuggestion form button {
+    width: 50%;
+}
+
+.suggestionBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5%;
+}
+
+.tvPoster img,
+.restaurantImage2 img {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+
+
+
+.restaurantBox2,
+.tvBox {
+    width: 30%;
+}
+
+.restaurantBox2:hover,
+.restaurantBox2:focus {
+    box-shadow: 12px 12px 7px #000000;
+}
+
+.tvBox {
+    position: relative;
+    text-align: center;
+    transition: 0.3s ease-out;
+    margin-top: 5%;
+}
+
+.tvBox:hover,
+.tvBox:focus {
+    transform: scale(1.05);
+    box-shadow: 12px 12px 7px #000000;
+}
+
+.tvInfo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 2px;
+    left: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.637);
+    z-index: 10;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.3s;
+    padding: 5px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.tvInfo:hover,
+.tvInfo:focus {
+    opacity: 1;
+}
+
+.tvInfo h3 {
+    margin: 0;
+    color: #89e6eb;
+    text-shadow: -1px 0 #3fc5cc,
+    0 1px #3fc5cc,
+    1px 0 #3fc5cc,
+    0 -1px #3fc5cc;
+    letter-spacing: 1px;
+}
+
+.tvInfo p {
+    padding: 5% 0;
+    margin: 0;
+    width: 80%;
+    margin: 0 auto;
+}

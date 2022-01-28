@@ -5,6 +5,7 @@ import Food from './components/Food.js';
 import Header from './components/Header'
 import Footer from './components/Footer';
 import TvShows from './components/TvShows.js'
+import RandomCombo from './components/RandomCombo.js';
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
         <Route path='/tvshows' element={<TvShows />}></Route>
 
       </Routes>
-      
+      <RandomCombo />
     <Footer />
     </div>
   );

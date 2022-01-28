@@ -3,29 +3,16 @@ import { useState, useEffect } from 'react';
 import { getDatabase, ref, push} from 'firebase/database';
 import axios from 'axios';
 import bingeFestApp from '../firebaseSetup';
+import Header from './Header'
+
 
 const TvShows = () => {
 
 
         // Initialize state and variables to hold user's favourited items and list of favourited items.
-    const list = [];
+    // const list = [];
     // const [list, setList] = useState([]);
-    const [favouritedItem, setFavouritedItem] = useState('');
-
-    // Creating an event handler that will run when user clicks button to add item to their list. * handleClick event to be connected to main app 
-    // (**Create button attached to results from API call from food app & movie DB** )
-    const handleAdd = (event) => {
-        setFavouritedItem(event.target.value);
-        event.preventDefault();
-
-        const database = getDatabase(bingeFestApp);
-        const dbRootAddress = ref(database);
-
-        push(dbRootAddress, favouritedItem, list);
-
-    };
-
-
+    const [favoritedItem, setFavoritedItem] = useState('');
     // // error states
     // const [error, setError] = useState(null);
     // const [alert, setAlert] = useState(false);
@@ -42,6 +29,28 @@ const TvShows = () => {
 
     // firebase states
     // const [favouritedShow, setFavouritedShow] = useState([]);
+    
+    // Creating an event handler that will run when user clicks button to add item to their list. * handleClick event to be connected to main app 
+    // (**Create button attached to results from API call from food app & movie DB** )
+    const handleAdd = (event) => {
+        event.preventDefault();
+        setFavoritedItem(event.target.id);
+
+    };
+
+    useEffect(() => {
+
+        if (favoritedItem !== '') {
+
+        const database = getDatabase(bingeFestApp);
+        const dbRootAddress = ref(database);
+
+            const showIndex = parseInt(favoritedItem);
+        push(dbRootAddress, tvShows[showIndex]);
+        
+        }
+    }, [favoritedItem, tvShows])
+
 
     // put the genre data in each button
     useEffect(() => {
@@ -129,46 +138,53 @@ const TvShows = () => {
 
 
     return (
-        <section className="tvPageContainer">
-            <h1>What are you feeling?</h1>
-            <p className="tvDescription">Pick a genre and we'll give you some movies to pair with your takeout!</p>
+        <section className="tvPageWrapper">
+            <Header />
+            <section className="tvPageContainer">
+                <h1>What are you feeling?</h1>
+                <p className="tvDescription">Pick a genre and we'll give you some movies to pair with your takeout!</p>
 
-            <form onSubmit={handleSubmit} className="tvFormContainer">
-                <div className="tvInputContainer">
-                    {buttonContent.map((genre, index) => {
+                <form onSubmit={handleSubmit} className="tvFormContainer">
+                    <div className="tvInputContainer">
+                        {buttonContent.map((genre, index) => {
+                            return (
+                                <div key={genre.id} className="radioContainer" tabIndex={index}>
+                                    <label htmlFor="genre">{genre.name}</label>
+                                    <input type='radio' onClick={handleInput} value={genre.id} key={genre.id} text={genre.name} />
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <button className="submitGenre">Submit</button>
+                </form>
+
+                <div className="tvResultsSection">
+                    {tvShows.map((show, showIndex) => {
                         return (
-                            <div key={genre.id} className="radioContainer" tabIndex={index}>
-                                <label htmlFor="genre">{genre.name}</label>
-                                <input type='radio' onClick={handleInput} value={genre.id} key={genre.id} text={genre.name} />
-                            </div>
+                            show.poster_path === null
+                                ? null
+                                : <div key={show.id} className="showContainer">
+                                    <div className="showImage">
+                                        <img src={`https://image.tmdb.org/t/p/original/${show.poster_path}`} alt={show.name} />
+                                    </div>
+                                    <div className="showInfo" key={show.id}>
+                                        <h3>{show.name}</h3>
+                                        {show.overview === ""
+                                            ? <p>No description.</p>
+                                            : <p>{show.overview}</p>}
+                                        <p>Made in <span>{show.origin_country[0]}</span></p>
+                                        <p>{Math.floor(show.popularity)} likes</p>
+                                        <button onClick={handleAdd} id={showIndex}>Add to favourites</button>
+                                    </div>
+                                </div>
                         )
                     })}
                 </div>
-                <button className="submitGenre">Submit</button>
-            </form>
-
-            <div className="tvResultsSection">
-                {tvShows.map((show) => {
-                    return (
-                        show.poster_path === null
-                            ? null
-                            : <div key={show.id} className="showContainer">
-                                <div className="showImage">
-                                    <img src={`https://image.tmdb.org/t/p/original/${show.poster_path}`} alt={show.name} />
-                                </div>
-                                <div className="showInfo">
-                                    <h2>{show.name}</h2>
-                                    <button onClick={handleAdd} value={show.id}>Add to favourites</button>
-                                </div>
-                            </div>
-                    )
-                })}
-            </div>
-
-
+            </section>
         </section>
     );
 
 }
 
 export default TvShows;
+
