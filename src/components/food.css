@@ -57,12 +57,17 @@
     overflow: hidden;
 }
 
+.foodList ul {
+    flex-wrap: wrap;
+}
+
 .foodList li {
     width: calc(100% / 5);
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 250px;
 }
 
 .restaurantBox {
@@ -131,7 +136,6 @@
 .restaurantInfo a:hover,
 .restaurantInfo a:focus {
     color: #89e6eb;
-    /* transform: scale(1.1); */
 }
 
 
@@ -142,7 +146,6 @@
 }
 
 .restaurantInfo button {
-    /* max-width: 150px; */
     width: 80%;
     margin-top: 2%;
     padding: 2% 0;
@@ -159,8 +162,8 @@
 .restaurantImage img {
     max-width: 100%;
     overflow: hidden;
-    height: 275px;
-    width: 275px;
+    height: 300px;
+    width: 300px;
     object-fit: cover;
 }
 
