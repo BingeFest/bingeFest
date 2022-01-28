@@ -10,33 +10,33 @@ const TvShows = () => {
 
 
         // Initialize state and variables to hold user's favourited items and list of favourited items.
-    const list = [];
+    // const list = [];
     // const [list, setList] = useState([]);
-    const [favouritedItem, setFavouritedItem] = useState('');
+    const [favoritedItem, setFavoritedItem] = useState('');
 
     // Creating an event handler that will run when user clicks button to add item to their list. * handleClick event to be connected to main app 
     // (**Create button attached to results from API call from food app & movie DB** )
     const handleAdd = (event) => {
         event.preventDefault();
-        setFavouritedItem(event.target.id);
+        setFavoritedItem(event.target.id);
 
     };
 
     useEffect(() => {
 
-        if(favouritedItem !== '') {
+        if (favoritedItem !== '') {
 
         const database = getDatabase(bingeFestApp);
         const dbRootAddress = ref(database);
 
-        const showIndex = parseInt(favouritedItem);
+            const showIndex = parseInt(favoritedItem);
         push(dbRootAddress, tvShows[showIndex]);
         
         }
 
        
 
-    },[favouritedItem])
+    }, [favoritedItem])
 
     // // error states
     // const [error, setError] = useState(null);
