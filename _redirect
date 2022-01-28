@@ -1,0 +1,2 @@
+/api/* http://proxy.hackeryou.com/:splat 200
+/* /index.html 200
