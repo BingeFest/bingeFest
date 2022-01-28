@@ -28,13 +28,14 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    padding: 5%;
+    padding: 0 5% 5% 5%;
 }
 
 .tvPoster img,
 .restaurantImage2 img {
     max-width: 100%;
     object-fit: cover;
+
 }
 
 
@@ -42,7 +43,7 @@
 
 .restaurantBox2,
 .tvBox {
-    width: 30%;
+    width: 40%;
 }
 
 .restaurantBox2:hover,
