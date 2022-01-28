@@ -38,7 +38,6 @@ html {
 header {
   color: #393E46;
   background-color: #00ADB5;
-  height: 15vh;
   margin: 0 auto;
   width: 100%;
 }
@@ -60,8 +59,7 @@ header {
 
 
 
-.classNav{
-  font-family: 'Newsreader', serif;
+.classNav {
   color: #393E46;
   font-size: 2rem;
   text-decoration: none;
@@ -78,11 +76,15 @@ nav{
 
 ul{
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-content: center;
   align-items: center;
   margin: 0 auto;
-  padding: 25px;
+  width: 100%;
+  gap: 75px;
+  padding: 40px;
+  line-height: .4;
 }
 
 li{
@@ -101,7 +103,6 @@ text-align: center;
 .btHeader {
   margin-top: 30px;
   margin-bottom: 30px;
-  font-family: 'Newsreader', serif;
   padding: 5px 11px 5px 11px ;
   font-size: 1rem;
   background-color: #00ADB5;
@@ -115,31 +116,35 @@ background-color: #3fc5cc;
 color: #EEEEEE;
 }
 
-/* ======Favourites List */
 
-.favContainer{
-  display: flex;
-  flex-direction: row;
+/* Landing Page Welcome Message */
+
+.welcome-message-title{
+  padding-top: 5%;
 }
 
-.imgFavourites {
-  width: 45%;
+.welcome-message-title,
+.welcome-message{
+  color: whitesmoke;
+  text-align: center;
+  margin: 0 200px;
+  line-height: 2;
+  text-shadow: 2px 1px #3fc5cc;
+
 }
 
-.favourite-item {
-  align-items: center;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 95%;
-  width: 500px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.2);
-  margin-top: 20px;
-  margin-bottom: 20px;
+.welcome-message{
+  font-size: 1.5em;
+
 }
 
+.welcome-section{
+  background-image: url(./assets/welcome-background-image.jpg);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
 
 
@@ -154,6 +159,7 @@ footer {
 footer p {
   text-align: center;
   padding-top: 20px;
+  margin: 0;
 }
 
 
@@ -167,5 +173,140 @@ footer p a:hover {
   color: #00ADB5;
 }
 
-/*===========delet later====================== */
 
+/* MEDIA MEDIA QUERY */
+
+@media (max-width: 1020px) {
+    .wrapper {
+      max-width: 1000px;
+      width: 90%;
+  }
+
+.navContainer ul{
+padding-left: 178px;
+padding-right: 178px;
+}
+
+}
+@media (max-width: 795px) {
+
+.navContainer ul{
+  padding-left: 150px;
+  padding-right: 150px;
+}
+}
+
+@media (max-width: 735px) {
+
+.welcome-message, .welcome-message-title{
+  margin: 0px 115px;
+}
+
+.navContainer ul{
+  padding-left: 100px;
+  padding-right: 100px;
+}
+}
+
+
+
+
+@media (max-width: 685px) {
+  .wrapper {
+      max-width: 685px;
+      width: 90%;
+  }
+
+  .welcome-message, .welcome-message-title{
+  margin: 0px 90px;
+}
+
+.navContainer ul{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.tvDescription {
+  text-align: center;
+  }
+}
+
+
+
+@media (max-width: 560px) {
+  .wrapper {
+      max-width: 560px;
+      width: 90%;
+    }
+
+    .welcome-message, .welcome-message-title{
+  margin: 0px 50px;
+}
+    
+  .navContainer ul{
+    width: 100%;
+    line-height: normal;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    gap: 22px;
+  }
+
+
+  .navContainer ul{
+  padding-left: 11px;
+  padding-right: 11px;
+}
+}
+
+
+
+@media (max-width: 500px) {
+  .wrapper {
+      max-width: 500px;
+      width: 90%;
+    }
+
+    .navContainer ul {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+
+  ul{
+    line-height: normal;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 0;
+    padding-right: 0;
+    gap: 22px;
+  }
+}
+
+
+@media (max-width: 420px) {
+  .wrapper {
+      max-width: 420px;
+      width: 90%;
+  }
+
+  .welcome-message, .welcome-message-title{
+  margin: 0px 20px;
+}
+
+.tvPageContainer h1 {
+  text-align: center;
+  font-size: 1.7rem;
+}
+}
+
+@media (max-width: 400px) {
+  .wrapper {
+      max-width: 400px;
+      width: 95%;
+    }
+
+
+.title {
+  font-size: 2.7rem;
+}
+}

@@ -6,23 +6,27 @@ import Header from './components/Header'
 import Footer from './components/Footer';
 import TvShows from './components/TvShows.js'
 import RandomCombo from './components/RandomCombo.js';
+import WelcomeMessage from './WelcomeMessage';
 
 
 function App() {
 
   return (
     <div className="App">
+      <Header />
+
+
 
       {/* Routing Configuration */}
 
       <Routes>
 
-        <Route path='/' element={ <Header />} />
+        <Route path='/' element={<WelcomeMessage />} />
         <Route path='/food' element={<Food />}> </Route>
         <Route path='/tvshows' element={<TvShows />}></Route>
+        <Route path='/randomcombo' element={<RandomCombo />}></Route>
 
       </Routes>
-      <RandomCombo />
     <Footer />
     </div>
   );

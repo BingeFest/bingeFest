@@ -1,0 +1,61 @@
+/* ======Favourites List */
+
+/* .favWrapper {
+    max-width: 1480px;
+    margin: 0 auto;
+} */
+
+.favWrapper h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.favContainer {
+    display: flex;
+    overflow-x: scroll;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.favourite-item {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.imgFavourites {
+    width: 200px;
+    margin: 20px;
+}
+
+
+.favourite-item-title {
+    margin: 0px;
+}
+
+
+.remove-from-list {
+    margin: 7%;
+    width: 175px;
+    border: none;
+    padding: 10px 0;
+    transition: 0.2s ease-out;
+
+}
+
+.remove-from-list:hover,
+.remove-from-list:focus {
+    cursor: pointer;
+    transform: scale(1.05);
+    background-color: #3fc5cc;
+    color: #EEEEEE;
+}
+
+.remove-from-list:active {
+    transform: scale(1);
+}
