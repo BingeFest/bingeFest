@@ -39,7 +39,6 @@ const RandomCombo = () => {
             (response) => {
                 const rawData = response.data.results;
                 setTvSearch(rawData);
-                console.log(rawData[randIndex]);
             },
             )
     }, [randIndex]);
