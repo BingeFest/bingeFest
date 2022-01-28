@@ -13,7 +13,23 @@ const TvShows = () => {
     // const list = [];
     // const [list, setList] = useState([]);
     const [favoritedItem, setFavoritedItem] = useState('');
+    // // error states
+    // const [error, setError] = useState(null);
+    // const [alert, setAlert] = useState(false);
 
+    // button states
+    const [buttonContent, setButtonContent] = useState([]);
+
+    // user query states
+    const [userChoice, setUserChoice] = useState(0);
+    const [searchQuery, setSearchQuery] = useState(0);
+
+    // result states
+    const [tvShows, setTvShows] = useState([]);
+
+    // firebase states
+    // const [favouritedShow, setFavouritedShow] = useState([]);
+    
     // Creating an event handler that will run when user clicks button to add item to their list. * handleClick event to be connected to main app 
     // (**Create button attached to results from API call from food app & movie DB** )
     const handleAdd = (event) => {
@@ -33,27 +49,8 @@ const TvShows = () => {
         push(dbRootAddress, tvShows[showIndex]);
         
         }
+    }, [favoritedItem, tvShows])
 
-       
-
-    }, [favoritedItem])
-
-    // // error states
-    // const [error, setError] = useState(null);
-    // const [alert, setAlert] = useState(false);
-
-    // button states
-    const [buttonContent, setButtonContent] = useState([]);
-
-    // user query states
-    const [userChoice, setUserChoice] = useState(0);
-    const [searchQuery, setSearchQuery] = useState(0);
-
-    // result states
-    const [tvShows, setTvShows] = useState([]);
-
-    // firebase states
-    // const [favouritedShow, setFavouritedShow] = useState([]);
 
     // put the genre data in each button
     useEffect(() => {
