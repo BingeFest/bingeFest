@@ -8,7 +8,7 @@ const Footer = () => {
             <FavouritesList />
         <footer>
             
-            <p>Created at Juno College <a href="https://junocollege.com/" target="_blank" rel="noreferrer">Juno College of
+            <p><a href="https://junocollege.com/" target="_blank" rel="noreferrer">Juno College of
                 Technology</a></p>
         </footer>
         </div>

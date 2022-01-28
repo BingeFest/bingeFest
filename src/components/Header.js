@@ -1,4 +1,4 @@
-// HEader
+// Header
 import { Link } from 'react-router-dom';
 const Header = () => {
 
@@ -14,19 +14,18 @@ const Header = () => {
                         <li>
                             <Link  className="title" to="/"> Binge Fest</Link>
                             </li>
+                           
                         <li>
                             <Link className="classNav" to='/tvshows'> TV shows</Link>
+                        </li> 
+                        <li>
+                            <Link className='classNav' to="/randomcombo">Random Combo</Link>
                         </li>
                     </ul>
                 </nav>
             </header>
-            <div>
-                <form className="formContainerHeader">
-                    <button className='btHeader' >Search</button>
-                </form>
-            </div>
         </div>
     )
 }
 
-export default Header
+export default Header;
