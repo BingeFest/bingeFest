@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <div>
             <header>
-                <nav className="wrapper">
+                <nav className="wrapper navContainer">
                     <ul>
                         <li >
                             <Link className="classNav" to= '/food'>Takeout </Link>
